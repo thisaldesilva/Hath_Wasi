@@ -3,6 +3,7 @@ package com.example.fypui;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -29,15 +30,18 @@ import java.util.HashMap;
 
 public class game_page extends AppCompatActivity {
 
-    HashMap<Integer, Card> imageToCardMap;
+    static HashMap<Integer, Card> imageToCardMap;
     private static ImageView[] cardArray = new ImageView[12];
 
     String trump;
 
-    AbComputerPlayer comPlayer1;
-    AbComputerPlayer comPlayer2;
-    Player human;
-    boolean playerAsking = false;
+    static AbComputerPlayer comPlayer1;
+    static AbComputerPlayer comPlayer2;
+    static Player human;
+    private boolean playerAsking = false;
+    private static int roundNumber = 0;
+
+
 
 
 
@@ -69,15 +73,38 @@ public class game_page extends AppCompatActivity {
         cardArray[10] = findViewById(R.id.playerCard11);
         cardArray[11] = findViewById(R.id.playerCard12);
 
+        startGame();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                openDialog();
+            }
+        }, 3000);
 
 
+
+        //create the game with the starting player set as human
+        Game game =  Game.getInstance(this, human, comPlayer1, comPlayer2, human, comPlayer1, comPlayer2, human, trump);
+
+
+
+
+
+
+
+    }
+
+
+    public static void startGame(){
         DeckOfCards card = new DeckOfCards();
         human = new Player("Donald Trump", card);
 
         comPlayer1 = new ComputerPlayerAgresive("Computer Player 1", card);
         comPlayer2 = new ComputerPlayerAgresive("Computer Player 2", card);
 
-        
+
         comPlayer1.displayDetails();
         comPlayer2.displayDetails();
 
@@ -88,6 +115,7 @@ public class game_page extends AppCompatActivity {
 
         for (int i = 0; i<12; i++){
             cardArray[i].setImageResource(human.getCardImagePathFromIndex(i));
+            cardArray[i].setVisibility(View.VISIBLE);
             final int j = i;
             ObjectAnimator animator = ObjectAnimator.ofFloat(cardArray[j], "translationY", 100f );
             animations.add(animator);
@@ -96,18 +124,14 @@ public class game_page extends AppCompatActivity {
         s.playSequentially(animations);
         s.start();
 
-        openDialog();
+        roundNumber = 0;
 
         imageToCardMap = imageViewToCardMap(human, cardArray);
 
-        //create the game with the starting player set as human
-        Game game =  Game.getInstance(this, human, comPlayer1, comPlayer2, human, comPlayer1, comPlayer2, human, trump);
-
-
-
-
-
-
+        Game game =  Game.getInstance();
+        game.setCpu1(comPlayer1);
+        game.setCpu2(comPlayer2);
+        game.setHumanPlayer(human);
 
     }
 
@@ -297,6 +321,28 @@ public class game_page extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
     }
+
+    public static void playNewGame(Activity activity){
+        //put would like to play the next round pop here
+
+        roundNumber++;
+
+        if(roundNumber % 3 == 0 ){
+        }
+        else if(roundNumber % 3 == 1){
+
+
+        }
+        else {
+
+        }
+
+
+
+
+    }
+
+
 
     private static HashMap< Integer, Card> imageViewToCardMap(Player player, ImageView[] views){
 

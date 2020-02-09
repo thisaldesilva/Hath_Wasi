@@ -9,19 +9,21 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="736dp"
-        android:layout_height="65dp"
+        android:layout_width="904dp"
+        android:layout_height="82dp"
         android:background="#032420"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="-2dp">
+        tools:layout_editor_absoluteY="0dp">
 
 
         <TextView
             android:id="@+id/textViewMyTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="160dp"
+            android:layout_marginLeft="100dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="My Team"
@@ -29,10 +31,31 @@
             android:textColor="#F1F3F3" />
 
         <TextView
+            android:id="@+id/textViewMyScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="40dp"
+            android:text="0"
+            android:textColor="#F1F3F3" />
+
+        <TextView
+            android:id="@+id/trumpSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="430dp"
+            android:layout_marginTop="20dp"
+            android:text="No Trump"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <TextView
             android:id="@+id/textViewOpponent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="410dp"
+            android:layout_marginLeft="710dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="Opponent"
@@ -43,40 +66,18 @@
             android:id="@+id/textViewOpponentScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="435dp"
+            android:layout_marginLeft="740dp"
             android:layout_marginTop="40dp"
             android:text="0"
             android:textColor="#F1F3F3" />
-
-        <TextView
-            android:id="@+id/textViewMyScore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="185dp"
-            android:layout_marginTop="40dp"
-            android:text="0"
-            android:textColor="#F1F3F3" />
-
-        <TextView
-            android:id="@+id/trumpSelected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="20dp"
-            android:text="No Trump"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:visibility="invisible" />
     </FrameLayout>
 
     <ImageView
         android:id="@+id/imageView43"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView42"
@@ -84,11 +85,10 @@
 
     <ImageView
         android:id="@+id/imageView42"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView41"
@@ -96,11 +96,10 @@
 
     <ImageView
         android:id="@+id/imageView41"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView40"
@@ -108,11 +107,10 @@
 
     <ImageView
         android:id="@+id/imageView40"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView39"
@@ -120,11 +118,10 @@
 
     <ImageView
         android:id="@+id/imageView39"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:adjustViewBounds="false"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,11 +130,10 @@
 
     <ImageView
         android:id="@+id/imageView38"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView37"
@@ -145,11 +141,10 @@
 
     <ImageView
         android:id="@+id/imageView37"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:adjustViewBounds="false"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,11 +153,10 @@
 
     <ImageView
         android:id="@+id/imageView36"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:adjustViewBounds="false"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
@@ -171,11 +165,10 @@
 
     <ImageView
         android:id="@+id/imageView35"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView34"
@@ -183,11 +176,10 @@
 
     <ImageView
         android:id="@+id/imageView34"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView33"
@@ -195,11 +187,10 @@
 
     <ImageView
         android:id="@+id/imageView33"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginTop="15dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView32"
@@ -207,11 +198,9 @@
 
     <ImageView
         android:id="@+id/imageView32"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="560dp"
-        android:layout_marginLeft="560dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="800dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
@@ -220,11 +209,10 @@
 
     <ImageView
         android:id="@+id/playerCard1"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="parent"
@@ -233,11 +221,10 @@
 
     <ImageView
         android:id="@+id/playerCard2"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard1"
@@ -246,11 +233,10 @@
 
     <ImageView
         android:id="@+id/playerCard3"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard2"
@@ -259,11 +245,10 @@
 
     <ImageView
         android:id="@+id/playerCard4"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard3"
@@ -272,11 +257,10 @@
 
     <ImageView
         android:id="@+id/playerCard5"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard4"
@@ -285,11 +269,10 @@
 
     <ImageView
         android:id="@+id/playerCard6"
-        android:layout_width="128dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard5"
@@ -298,11 +281,10 @@
 
     <ImageView
         android:id="@+id/playerCard7"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard6"
@@ -311,11 +293,10 @@
 
     <ImageView
         android:id="@+id/playerCard8"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard7"
@@ -324,11 +305,10 @@
 
     <ImageView
         android:id="@+id/playerCard9"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard8"
@@ -337,11 +317,10 @@
 
     <ImageView
         android:id="@+id/playerCard10"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard9"
@@ -350,11 +329,10 @@
 
     <ImageView
         android:id="@+id/playerCard11"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard10"
@@ -363,11 +341,10 @@
 
     <ImageView
         android:id="@+id/playerCard12"
-        android:layout_width="132dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="140dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard11"
@@ -383,11 +360,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginEnd="800dp"
         android:adjustViewBounds="false"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
@@ -396,11 +371,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView"
@@ -408,11 +382,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
@@ -420,11 +393,10 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
@@ -432,11 +404,10 @@
 
     <ImageView
         android:id="@+id/imageView21"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
@@ -444,11 +415,10 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView21"
@@ -456,11 +426,10 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:adjustViewBounds="false"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
@@ -469,11 +438,10 @@
 
     <ImageView
         android:id="@+id/imageView22"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView7"
@@ -481,11 +449,10 @@
 
     <ImageView
         android:id="@+id/imageView23"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView22"
@@ -493,11 +460,10 @@
 
     <ImageView
         android:id="@+id/imageView24"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView23"
@@ -505,11 +471,10 @@
 
     <ImageView
         android:id="@+id/imageView25"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:adjustViewBounds="false"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
@@ -518,11 +483,10 @@
 
     <ImageView
         android:id="@+id/imageView31"
-        android:layout_width="92dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="560dp"
-        android:layout_marginRight="560dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="800dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView25"
@@ -530,19 +494,20 @@
 
     <ImageView
         android:id="@+id/playCard"
-        android:layout_width="215dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="100dp"
+        android:layout_width="260dp"
+        android:layout_height="148dp"
         android:layout_marginTop="76dp"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/com2Card"
+        app:layout_constraintStart_toEndOf="@+id/com1Card"
         app:layout_constraintTop_toBottomOf="@id/frameLayout"
         app:srcCompat="@drawable/card_behind" />
 
     <ImageView
         android:id="@+id/com1Card"
-        android:layout_width="215dp"
-        android:layout_height="103dp"
+        android:layout_width="260dp"
+        android:layout_height="148dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="76dp"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -551,12 +516,12 @@
 
     <ImageView
         android:id="@+id/com2Card"
-        android:layout_width="215dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="204dp"
+        android:layout_width="260dp"
+        android:layout_height="148dp"
         android:layout_marginTop="76dp"
+        android:layout_marginEnd="160dp"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/frameLayout"
         app:srcCompat="@drawable/card_behind" />
 
