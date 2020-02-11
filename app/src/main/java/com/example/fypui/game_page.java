@@ -41,6 +41,7 @@ public class game_page extends AppCompatActivity {
     static Player human;
     private boolean playerAsking = false;
     private static int roundNumber = 0;
+    private static Sounds sounds;
 
 
 
@@ -69,6 +70,8 @@ public class game_page extends AppCompatActivity {
         cardArray[9] = findViewById(R.id.playerCard10);
         cardArray[10] = findViewById(R.id.playerCard11);
         cardArray[11] = findViewById(R.id.playerCard12);
+
+        sounds = new Sounds(this);
 
 
         comPlayerCardViews = new ComputerPlayerCardViews(this);
@@ -381,6 +384,8 @@ public class game_page extends AppCompatActivity {
 
     public void cardSelected(final View v){
         cardTouch(false);
+
+        Sounds.cardClick();
 
         Log.println( Log.ERROR, "TAG", "Selected ImageView ID: " + v.getId());
         final Card selectedCard = imageToCardMap.get(v.getId());
