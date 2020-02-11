@@ -66,6 +66,18 @@
                 android:textStyle="bold" />
 
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/playerMedal"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:visibility="invisible"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/medal" />
+
+
             <TextView
 
                 android:id="@+id/simpleTextView2"
@@ -78,6 +90,18 @@
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/cpu1Medal"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:visibility="invisible"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/medal" />
+
+
             <TextView
 
                 android:id="@+id/simpleTextView3"
@@ -89,6 +113,18 @@
                 android:textColor="#F1F3F3"
                 android:textSize="16dp"
                 android:textStyle="bold" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/cpu2Medal"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:visibility="invisible"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/medal" />
+
 
         </TableRow>
 
