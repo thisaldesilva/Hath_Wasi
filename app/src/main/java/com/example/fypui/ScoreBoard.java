@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 
 public class ScoreBoard {
     private static ScoreBoard ourInstance;
-
+    private static int numberOfScores;
     private GameScore scores[];
 
     public int getNumberOfScores() {
@@ -14,8 +14,6 @@ public class ScoreBoard {
     public void setNumberOfScores(int numberOfScores) {
         this.numberOfScores = numberOfScores;
     }
-
-    private int numberOfScores;
 
     private ScoreBoard() {
         this.scores = new GameScore[10];
@@ -28,6 +26,15 @@ public class ScoreBoard {
             ourInstance = new ScoreBoard();
         }
         return ourInstance;
+    }
+
+    public static boolean gameFinish(){
+        if(numberOfScores >= 10){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public GameScore[] getScores() {

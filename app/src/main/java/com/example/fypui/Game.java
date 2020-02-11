@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
@@ -57,7 +58,6 @@ public class Game {
         this.teamPlayer1 = teamPlayer1;
         this.teamPlayer2 = teamPlayer2;
         this.singlePlayerScore = 0;
-        this.teamScore = 0;
         this.playedRounds = new GameRound[12];
         this.numberOfRoundsPlayed = 0;
         this.cpu1 = cpu1;
@@ -1246,6 +1246,8 @@ public class Game {
 
     private void selectTrump(){
 
+
+
         this.trumps = null;
         AlertDialog.Builder chooseTrump = new AlertDialog.Builder(activity, R.style.AlertDialogStyle);
 //        LayoutInflater inflater = getLayoutInflater();
@@ -1304,42 +1306,51 @@ public class Game {
 
     public void openDialog(){
 
-        Log.println( Log.ERROR, "TAG", "Inside openDialog" );
+        if(ScoreBoard.getInstance().gameFinish()){
+            ourInstance = null;
+            Intent intent = new Intent(activity, scores_page.class);
+            activity.startActivity(intent);
+            activity.overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                setCardVisibility(false);
-                AlertDialog.Builder getChances = new AlertDialog.Builder(activity, R.style.AlertDialogStyle);
-                getChances.setMessage("Would you like to play the next round?")
-                        .setTitle("♠ ♥ ♣ ♦")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                createNewGame(humanPlayer, cpu1, cpu2);
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ourInstance = null;
-                                activity.finish();
-                            }
+        }
+        else {
+
+            Log.println(Log.ERROR, "TAG", "Inside openDialog");
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setCardVisibility(false);
+                    AlertDialog.Builder getChances = new AlertDialog.Builder(activity, R.style.AlertDialogStyle);
+                    getChances.setMessage("Would you like to play the next round?")
+                            .setTitle("♠ ♥ ♣ ♦")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    createNewGame(humanPlayer, cpu1, cpu2);
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    ourInstance = null;
+                                    activity.finish();
+                                }
 
 
+                            });
 
-                        });
+                    AlertDialog dialog = getChances.create();
+                    dialog.setCanceledOnTouchOutside(false);
+                    dialog.setCancelable(false);
+                    dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
+                    dialog.show();
+                }
+            }, 3000);
 
-                AlertDialog dialog = getChances.create();
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.setCancelable(false);
-                dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
-                dialog.show();
-            }
-        }, 3000);
-
-        Log.println( Log.ERROR, "TAG", "Exiting openDialog" );
+            Log.println(Log.ERROR, "TAG", "Exiting openDialog");
+        }
 
     }
 
