@@ -382,6 +382,12 @@ public class game_page extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        Game.setOurInstance(null);
+        finish();
+    }
     public void cardSelected(final View v){
         cardTouch(false);
 
