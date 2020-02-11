@@ -7,7 +7,7 @@ import java.lang.reflect.Array;
 public class ScoreBoard {
     private static ScoreBoard ourInstance;
     private static int numberOfScores;
-    private GameScore scores[];
+    private static GameScore scores[];
 
     public static int getNumberOfScores() {
         return numberOfScores;
@@ -48,17 +48,29 @@ public class ScoreBoard {
         }
     }
 
-    public int getWinner() {
+    public static int getWinner() {
         int[] totals = new int[]{0,0,0};
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < ScoreBoard.getNumberOfScores(); i++){
             totals[0] += scores[i].getHuman();
             totals[1] += scores[i].getComputerPlayer1();
             totals[2] += scores[i].getComputerPlayer2();
         }
 
-        int max = Arrays.stream(totals).max().getAsInt();
-        return  max;
+        // Initialize maximum element
+        int max = totals[0];
+        int index = 0;
+
+        // Traverse array elements from second and
+        // compare every element with current max
+        for (int i = 1; i < totals.length; i++)
+            if (totals[i] > max) {
+                max = totals[i];
+                index = i;
+            }
+
+        return index;
+
     }
 
 

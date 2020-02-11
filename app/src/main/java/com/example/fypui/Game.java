@@ -74,6 +74,8 @@ public class Game {
         this.playerTurnIndex = 0;
         this.gameFinish = false;
         this.sounds = new Sounds(activity);
+        updataRoundNumber();
+
 
     }
 
@@ -111,6 +113,7 @@ public class Game {
         this.humanPlayer = humanPlayer;
         this.invalidCardByHuman =  false;
         this.gameFinish = false;
+        updataRoundNumber();
 
     }
 
