@@ -27,6 +27,8 @@ import java.util.ArrayList;
 
 public class Game {
 
+
+
     private static Game ourInstance;
 
     private static Player singlePlayer;
@@ -1287,6 +1289,7 @@ public class Game {
     }
 
 
+
     public void openDialog(){
 
         if(ScoreBoard.getInstance().gameFinish()){
@@ -1497,5 +1500,13 @@ public class Game {
     public static boolean getinvalidCardByHuman(){ return invalidCardByHuman; }
 
     public static void setinvalidCardByHuman( boolean invalidCardByHuman) { Game.invalidCardByHuman = invalidCardByHuman; }
+
+    public static Game getOurInstance() {
+        return ourInstance;
+    }
+
+    public static void setOurInstance(Game ourInstance) {
+        Game.ourInstance = ourInstance;
+    }
 
 }

@@ -382,6 +382,12 @@ public class game_page extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        Game.setOurInstance(null);
+        finish();
+    }
     public void cardSelected(final View v){
         cardTouch(false);
 
@@ -434,9 +440,6 @@ public class game_page extends AppCompatActivity {
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                     @Override
                     public void onAnimationStart(Animation animation) {
-                        final MediaPlayer player = MediaPlayer.create(getApplicationContext(), R.raw.click_sound);
-                        player.start();
-
                         image.setImageAlpha(1000);
                     }
 
