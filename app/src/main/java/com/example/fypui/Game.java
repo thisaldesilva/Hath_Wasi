@@ -46,6 +46,7 @@ public class Game {
     private static Player[] players;
     private static int playerTurnIndex;
     private static boolean gameFinish;
+    private static Sounds sounds;
 
 
     private static String trumps;
@@ -70,6 +71,7 @@ public class Game {
         this.players = new Player[]{humanPlayer, cpu2, cpu1};
         this.playerTurnIndex = 0;
         this.gameFinish = false;
+        this.sounds = new Sounds(activity);
 
 
     }
@@ -190,13 +192,12 @@ public class Game {
                             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                             @Override
                             public void onAnimationStart(Animation animation) {
-                                final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                player.start();
+                                sounds.cardClick();
+
                                 ComputerPlayerCardViews.hideCardFromPlayer2();
 
                                 com2.setVisibility(View.VISIBLE);
                                 com2.setImageAlpha(1000);
-                                player.stop();
                             }
 
                             @Override
@@ -223,14 +224,11 @@ public class Game {
                             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                             @Override
                             public void onAnimationStart(Animation animation) {
-                                final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                player.start();
+                                sounds.cardClick();
                                 ComputerPlayerCardViews.hideCardFromPlayer1();
 
                                 com1.setVisibility(View.VISIBLE);
                                 com1.setImageAlpha(1000);
-
-                                player.stop();
                             }
 
                             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -279,14 +277,13 @@ public class Game {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            final MediaPlayer player = MediaPlayer.create(activity, R.raw.card_collectt);
-                            player.start();
+                            sounds.cardCollect();
+
                             com1.setVisibility(View.INVISIBLE);
                             com2.setVisibility(View.INVISIBLE);
                             playerPlaceholder.setVisibility(View.INVISIBLE);
                             game_page.cardTouch(true);
 
-                            player.stop();
                         }
                     }, 6000);
                 }
@@ -353,8 +350,7 @@ public class Game {
                             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                             @Override
                             public void onAnimationStart(Animation animation) {
-                                final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                player.start();
+                                sounds.cardClick();
                                 ComputerPlayerCardViews.hideCardFromPlayer2();
 
                                 com2.setVisibility(View.VISIBLE);
@@ -407,13 +403,11 @@ public class Game {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            final MediaPlayer player = MediaPlayer.create(activity, R.raw.card_collectt);
-                            player.start();
+                            sounds.cardCollect();
                             com1.setVisibility(View.INVISIBLE);
                             com2.setVisibility(View.INVISIBLE);
                             playerPlaceholder.setVisibility(View.INVISIBLE);
                             game_page.cardTouch(true);
-                            player.stop();
                         }
                     }, 6000);
                 }
@@ -475,8 +469,8 @@ public class Game {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        final MediaPlayer player = MediaPlayer.create(activity, R.raw.card_collectt);
-                        player.start();
+
+                        sounds.cardCollect();
 
                         com1.setVisibility(View.INVISIBLE);
                         com2.setVisibility(View.INVISIBLE);
@@ -486,7 +480,6 @@ public class Game {
                             game_page.cardTouch(true);
                         }
 
-                        player.stop();
                     }
                 }, 6000);
 
@@ -503,14 +496,12 @@ public class Game {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            final MediaPlayer player = MediaPlayer.create(activity, R.raw.card_collectt);
-                            player.start();
+
                             com1.setVisibility(View.INVISIBLE);
                             com2.setVisibility(View.INVISIBLE);
                             playerPlaceholder.setVisibility(View.INVISIBLE);
                             game_page.cardTouch(true);
 
-                            player.stop();
                         }
                     }, 6000);
                 }
@@ -653,12 +644,10 @@ public class Game {
                                 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                                 @Override
                                 public void onAnimationStart(Animation animation) {
-                                    final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                    player.start();
+                                    sounds.cardClick();
                                     ComputerPlayerCardViews.hideCardFromPlayer1();
 
                                     com1.setImageAlpha(1000);
-                                    player.stop();
                                 }
 
                                 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -725,14 +714,13 @@ public class Game {
                                         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                                         @Override
                                         public void onAnimationStart(Animation animation) {
-                                            final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                            player.start();
+                                            sounds.cardClick();
+
                                             ComputerPlayerCardViews.hideCardFromPlayer2();
 
                                             com2.setVisibility(View.VISIBLE);
                                             com2.setImageAlpha(1000);
 
-                                            player.stop();
                                         }
 
                                         @Override
@@ -757,14 +745,12 @@ public class Game {
                                         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                                         @Override
                                         public void onAnimationStart(Animation animation) {
-                                            final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                            player.start();
+                                            sounds.cardClick();
 
                                             com1.setVisibility(View.VISIBLE);
                                             com1.setImageAlpha(1000);
                                             ComputerPlayerCardViews.hideCardFromPlayer1();
 
-                                            player.stop();
                                         }
 
                                         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -845,8 +831,7 @@ public class Game {
                             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                             @Override
                             public void onAnimationStart(Animation animation) {
-                                final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                player.start();
+                                sounds.cardClick();
                                 ComputerPlayerCardViews.hideCardFromPlayer1();
 
                                 com1.setImageAlpha(1000);
@@ -910,8 +895,7 @@ public class Game {
                                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                                     @Override
                                     public void onAnimationStart(Animation animation) {
-                                        final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                        player.start();
+                                        sounds.cardClick();
                                         ComputerPlayerCardViews.hideCardFromPlayer2();
 
                                         com2.setVisibility(View.VISIBLE);
@@ -940,8 +924,7 @@ public class Game {
                                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                                     @Override
                                     public void onAnimationStart(Animation animation) {
-                                        final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                        player.start();
+                                        sounds.cardClick();
                                         ComputerPlayerCardViews.hideCardFromPlayer1();
 
                                         com1.setVisibility(View.VISIBLE);
