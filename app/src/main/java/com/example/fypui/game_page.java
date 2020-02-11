@@ -32,6 +32,7 @@ public class game_page extends AppCompatActivity {
 
     static HashMap<Integer, Card> imageToCardMap;
     private static ImageView[] cardArray = new ImageView[12];
+    private static ComputerPlayerCardViews comPlayerCardViews;
 
     String trump;
 
@@ -40,7 +41,6 @@ public class game_page extends AppCompatActivity {
     static Player human;
     private boolean playerAsking = false;
     private static int roundNumber = 0;
-
 
 
 
@@ -57,9 +57,6 @@ public class game_page extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.game_page);
 
-
-
-
         cardArray[0] = findViewById(R.id.playerCard1);
         cardArray[1] = findViewById(R.id.playerCard2);
         cardArray[2] = findViewById(R.id.playerCard3);
@@ -72,6 +69,9 @@ public class game_page extends AppCompatActivity {
         cardArray[9] = findViewById(R.id.playerCard10);
         cardArray[10] = findViewById(R.id.playerCard11);
         cardArray[11] = findViewById(R.id.playerCard12);
+
+
+        comPlayerCardViews = new ComputerPlayerCardViews(this);
 
         startGame();
 
@@ -90,10 +90,12 @@ public class game_page extends AppCompatActivity {
 
 
 
+    }
 
-
-
-
+    public static void moveUpPlayerCards(){
+        for (int i = 0; i < 12; i++){
+            cardArray[i].setY(cardArray[i].getY() - 100f);
+        }
     }
 
 
@@ -112,6 +114,8 @@ public class game_page extends AppCompatActivity {
         AnimatorSet s = new AnimatorSet();
         ArrayList<Animator> animations = new ArrayList<Animator>() ;
 
+        moveUpPlayerCards();
+        ComputerPlayerCardViews.openAnimation();
 
         for (int i = 0; i<12; i++){
             cardArray[i].setImageResource(human.getCardImagePathFromIndex(i));
@@ -138,7 +142,7 @@ public class game_page extends AppCompatActivity {
 
     private void selectTrump(){
 
-        AlertDialog.Builder chooseTrump = new AlertDialog.Builder(game_page.this, R.style.AlertDialogStyle);
+        AlertDialog.Builder chooseTrump = new AlertDialog.Builder(game_page.this,  R.style.AlertDialogStyle);
 //        LayoutInflater inflater = getLayoutInflater();
 //        View dialogLayout = inflater.inflate(R.layout.activity_popup_window, null);
         String[] items = {"♠ Spades", "♥ Hearts", "♣ Clubs", "♦ Diamonds"};
@@ -169,31 +173,36 @@ public class game_page extends AppCompatActivity {
         AlertDialog dialog = chooseTrump.create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
         dialog.show();
     }
 
     public void passTrumpToTheInterface(int which){
-
+        Game game = Game.getInstance();
         final TextView textViewTrump = (TextView) findViewById(R.id.trumpSelected);
         textViewTrump.setVisibility(View.VISIBLE);
         switch (which){
             case 0:
                 trump = "spades";
+                game.setTrumps(trump);
                 Log.d( "TAG", "Spades Selected: " + trump);
                 textViewTrump.setText("♠");
                 break;
             case 1:
                 trump = "hearts";
+                game.setTrumps(trump);
                 Log.d( "TAG", "Hearts Selected: " + trump);
                 textViewTrump.setText("♥");
                 break;
             case 2:
                 trump = "clubs";
+                game.setTrumps(trump);
                 Log.d( "TAG", "Clubs Selected: " + trump);
                 textViewTrump.setText("♣");
                 break;
             case 3:
                 trump = "diamonds";
+                game.setTrumps(trump);
                 Log.d( "TAG", "Diamonds Selected: " + trump);
                 textViewTrump.setText("♦");
                 break;
@@ -202,33 +211,39 @@ public class game_page extends AppCompatActivity {
 
     public void passTrumpToTheInterface(String which){
 
+        Game game = Game.getInstance();
         final TextView textViewTrump = (TextView) findViewById(R.id.trumpSelected);
         textViewTrump.setVisibility(View.VISIBLE);
         switch (which){
             case "spades":
                 trump = "spades";
+                game.setTrumps(trump);
                 Log.d( "TAG", "Spades Selected: " + trump);
                 textViewTrump.setText("♠");
                 break;
             case "hearts":
                 trump = "hearts";
+                game.setTrumps(trump);
                 Log.d( "TAG", "Hearts Selected: " + trump);
                 textViewTrump.setText("♥");
                 break;
             case "clubs":
                 trump = "clubs";
                 Log.d( "TAG", "Clubs Selected: " + trump);
+                game.setTrumps(trump);
                 textViewTrump.setText("♣");
                 break;
             case "diamonds":
                 trump = "diamonds";
+                game.setTrumps(trump);
                 Log.d( "TAG", "Diamonds Selected: " + trump);
                 textViewTrump.setText("♦");
                 break;
         }
     }
     public void openDialog(){
-        AlertDialog.Builder getChances = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
+        Game game = Game.getInstance();
+        AlertDialog.Builder getChances = new AlertDialog.Builder(this,  R.style.AlertDialogStyle);
         getChances.setMessage("Can you win 7 chances?")
                 .setTitle("♠ ♥ ♣ ♦")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -251,10 +266,12 @@ public class game_page extends AppCompatActivity {
                         if (playerAsking == false) {
                             if (SelectingTrumpComPlayer.getChances(comPlayer2)) {
                                 trump = SelectingTrumpComPlayer.getTrump(comPlayer2);
+                                game.setTrumps(trump);
                                 passTrumpToTheInterface(trump);
                                 playerAsking = true;
                                 Toast.makeText(getApplicationContext(), "Computer player 2 selected trump as " + trump, Toast.LENGTH_LONG).show();
                                 scoreLabel.setText(comPlayer2.getName());
+                                cardTouch(false);
                                 myLabel.setText("My Team");
 
                                 game.alterInstance( comPlayer2, human, comPlayer1, human, comPlayer1, comPlayer2, comPlayer2, trump);
@@ -262,11 +279,13 @@ public class game_page extends AppCompatActivity {
 
                             } else if (SelectingTrumpComPlayer.getChances(comPlayer1)) {
                                 trump = SelectingTrumpComPlayer.getTrump(comPlayer1);
+                                game.setTrumps(trump);
                                 passTrumpToTheInterface(trump);
                                 playerAsking = true;
                                 Toast.makeText(getApplicationContext(), "Computer player 1 selected trump as " + trump, Toast.LENGTH_LONG).show();
                                 scoreLabel.setText(comPlayer1.getName());
                                 myLabel.setText("My Team");
+                                cardTouch(false);
 
                                 game.alterInstance( comPlayer1, human, comPlayer2, human, comPlayer1, comPlayer2, comPlayer1, trump);
                                 game.moveForwardWithCpuWin(comPlayer1);
@@ -319,6 +338,7 @@ public class game_page extends AppCompatActivity {
         AlertDialog dialog = getChances.create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
         dialog.show();
     }
 
@@ -390,7 +410,6 @@ public class game_page extends AppCompatActivity {
 
         final Game game =  Game.getInstance();
 
-        game.setTrumps(trump);
         game.playNextMove(selectedCard);
 
         if (game.getinvalidCardByHuman() == false ){

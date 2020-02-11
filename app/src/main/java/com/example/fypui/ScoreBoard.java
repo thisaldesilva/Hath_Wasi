@@ -35,7 +35,9 @@ public class ScoreBoard {
     }
 
     public void setScore(GameScore score) {
-        this.scores[this.numberOfScores++] = score;
+        if(this.numberOfScores < 10) {
+            this.scores[this.numberOfScores++] = score;
+        }
     }
 
 

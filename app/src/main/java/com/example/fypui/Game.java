@@ -109,10 +109,11 @@ public class Game {
         this.invalidCardByHuman =  false;
         this.gameFinish = false;
 
-
     }
 
     public void  playNextMove(Card selectedCard){
+
+        game_page.cardTouch(false);
 
         final ImageView com1 =  this.activity.findViewById(R.id.com1Card);
         final ImageView com2 =  this.activity.findViewById(R.id.com2Card);
@@ -140,8 +141,14 @@ public class Game {
 
             try {
 
+                game_page.cardTouch(false);
+
                 Log.d( "TAG", "Entered previous winner Human");
                 Log.println( Log.ERROR, "TAG", "Try block 1.." );
+
+                Log.println(Log.ERROR, "TAG", "passing trumps in block 1 : " + this.trumps);
+
+
 
                 GameRound gameRound = new GameRound( this.cpu1, this.cpu1.selectSmallestCardFromCategory(selectedCard.getCategory()),
                         this.cpu2, this.cpu2.selectSmallestCardFromCategory(selectedCard.getCategory()),
@@ -185,6 +192,7 @@ public class Game {
                             public void onAnimationStart(Animation animation) {
                                 final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
                                 player.start();
+                                ComputerPlayerCardViews.hideCardFromPlayer2();
 
                                 com2.setVisibility(View.VISIBLE);
                                 com2.setImageAlpha(1000);
@@ -217,6 +225,7 @@ public class Game {
                             public void onAnimationStart(Animation animation) {
                                 final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
                                 player.start();
+                                ComputerPlayerCardViews.hideCardFromPlayer1();
 
                                 com1.setVisibility(View.VISIBLE);
                                 com1.setImageAlpha(1000);
@@ -309,6 +318,7 @@ public class Game {
 
                 Log.println(Log.ERROR, "TAG", "Rolly");
 
+                Log.println(Log.ERROR, "TAG", "passing trumps in block 1 : " + this.trumps);
 
                 if(this.invalidCardByHuman == false) {
                     com2Card = this.cpu2.selectSmallestCardFromCategory(selectedCard.getCategory());
@@ -345,6 +355,7 @@ public class Game {
                             public void onAnimationStart(Animation animation) {
                                 final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
                                 player.start();
+                                ComputerPlayerCardViews.hideCardFromPlayer2();
 
                                 com2.setVisibility(View.VISIBLE);
                                 com2.setImageAlpha(1000);
@@ -429,6 +440,8 @@ public class Game {
 
                 Log.println( Log.ERROR, "TAG", "Try block 3.." );
 
+                Log.println(Log.ERROR, "TAG", "passing trumps in block 1 : " + this.trumps);
+
                 GameRound gameRound = new GameRound( this.cpu1, c1,
                         this.cpu2, c2,
                         this.humanPlayer, selectedCard,c2.getCategory() ,this.trumps );
@@ -437,7 +450,9 @@ public class Game {
 
                 this.playedRounds[this.numberOfRoundsPlayed++] = gameRound;
 
-                setComputerCardsToImageView(c1, c2, com1, com2);
+                if(numberOfRoundsPlayed == 0) {
+                    setComputerCardsToImageView(c1, c2, com1, com2);
+                }
 
                 this.cpu1.getCardDeck().remove(c1);
                 this.cpu1.setNumberOfCardsRemaining(cpu1.getNumberOfCardsRemaining()-1);
@@ -466,7 +481,10 @@ public class Game {
                         com1.setVisibility(View.INVISIBLE);
                         com2.setVisibility(View.INVISIBLE);
                         playerPlaceholder.setVisibility(View.INVISIBLE);
-                        game_page.cardTouch(true);
+
+                        if(winner.getName() != "Computer Player 1" && winner.getName() != "Computer Player 2") {
+                            game_page.cardTouch(true);
+                        }
 
                         player.stop();
                     }
@@ -516,6 +534,8 @@ public class Game {
     public void setComputerCardsToImageView(Card cardLeft, Card cardRight, final ImageView leftView, final ImageView rightView){
 
 
+        ComputerPlayerCardViews.hideCardFromPlayer1();
+        ComputerPlayerCardViews.hideCardFromPlayer2();
         leftView.setImageResource(cardLeft.getImageSource());
         rightView.setImageResource(cardRight.getImageSource());
         leftView.setVisibility(View.VISIBLE);
@@ -588,7 +608,9 @@ public class Game {
 
         //move forward only if the current game is not finished
 
-        if(numberOfRoundsPlayed < 12) {
+        game_page.cardTouch(false);
+
+        if(numberOfRoundsPlayed < 12 && gameFinish == false) {
 
             final AnimatorSet animatorSet = new AnimatorSet();
 
@@ -615,54 +637,59 @@ public class Game {
                     @Override
                     public void run() {
 
-                        playerPlaceholder.setVisibility(View.INVISIBLE);
-                        com2.setVisibility(View.INVISIBLE);
+                        if(gameFinish == false) {
 
-                        c1 = ((AbComputerPlayer) pr.getWinner()).selectHighestCard();
-                        com1.setImageResource(c1.getImageSource());
-                        com1.setVisibility(View.VISIBLE);
+                            playerPlaceholder.setVisibility(View.INVISIBLE);
+                            com2.setVisibility(View.INVISIBLE);
 
-                        Animation animation = AnimationUtils.loadAnimation(activity, R.anim.lefttoright);
+                            c1 = ((AbComputerPlayer) pr.getWinner()).selectHighestCard();
+                            com1.setImageResource(c1.getImageSource());
+                            com1.setVisibility(View.VISIBLE);
 
-                        com1.startAnimation(animation);
-                        animation.setAnimationListener(new Animation.AnimationListener() {
-                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                player.start();
+                            Animation animation = AnimationUtils.loadAnimation(activity, R.anim.lefttoright);
 
-                                com1.setImageAlpha(1000);
-                                player.stop();
-                            }
+                            com1.startAnimation(animation);
+                            animation.setAnimationListener(new Animation.AnimationListener() {
+                                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                                @Override
+                                public void onAnimationStart(Animation animation) {
+                                    final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
+                                    player.start();
+                                    ComputerPlayerCardViews.hideCardFromPlayer1();
 
-                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
+                                    com1.setImageAlpha(1000);
+                                    player.stop();
+                                }
 
-                            }
+                                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                                @Override
+                                public void onAnimationEnd(Animation animation) {
 
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
+                                }
 
-                            }
+                                @Override
+                                public void onAnimationRepeat(Animation animation) {
 
-                        });
+                                }
+
+                            });
 
 
-                        //cpu1.getCardDeck().remove(c1);
-                        //cpu1.setNumberOfCardsRemaining(cpu1.numberOfCardsRemaining-1);
+                            //cpu1.getCardDeck().remove(c1);
+                            //cpu1.setNumberOfCardsRemaining(cpu1.numberOfCardsRemaining-1);
 
 //                    game_page.cardTouch(true);
 //                    ObjectAnimator ani = ObjectAnimator.ofFloat(com2, "rotation", 0f, 360f);
 //                    ani.setDuration(1500);
 //                    animatorSet.play(ani);
 //                    animatorSet.start();
+                        }
+                        game_page.cardTouch(true);
                     }
+
                 }, 6000);
 
                 //com1.setImageResource(((AbComputerPlayer) pr.getWinner()).selectHighestCard().getImageSource());
-                game_page.cardTouch(true);
 
             } else {
 
@@ -671,97 +698,106 @@ public class Game {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        playerPlaceholder.setVisibility(View.INVISIBLE);
 
-                        c2 = ((AbComputerPlayer) pr.getWinner()).selectHighestCard();
-                        c1 = cpu1.selectSmallestCardFromCategory(c2.getCategory());
+                        if (gameFinish == false) {
 
-                        com2.setImageResource(c2.getImageSource());
-                        com1.setImageResource(c1.getImageSource());
-                        com2.setVisibility(View.INVISIBLE);
-                        com1.setVisibility(View.INVISIBLE);
-
-                        final Animation animationLr = AnimationUtils.loadAnimation(activity, R.anim.lefttoright);
-                        final Animation animationRl = AnimationUtils.loadAnimation(activity, R.anim.righttoleft);
+                            playerPlaceholder.setVisibility(View.INVISIBLE);
 
 
-                        Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                com2.startAnimation(animationRl);
-                                animationRl.setAnimationListener(new Animation.AnimationListener() {
-                                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                                    @Override
-                                    public void onAnimationStart(Animation animation) {
-                                        final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                        player.start();
+                            c2 = ((AbComputerPlayer) pr.getWinner()).selectHighestCard();
+                            c1 = cpu1.selectSmallestCardFromCategory(c2.getCategory());
 
-                                        com2.setVisibility(View.VISIBLE);
-                                        com2.setImageAlpha(1000);
+                            com2.setImageResource(c2.getImageSource());
+                            com1.setImageResource(c1.getImageSource());
+                            com2.setVisibility(View.INVISIBLE);
+                            com1.setVisibility(View.INVISIBLE);
 
-                                        player.stop();
-                                    }
-
-                                    @Override
-                                    public void onAnimationEnd(Animation animation) {
-                                        //com2.setScaleX(com2.getScaleX());
-
-                                    }
-
-                                    @Override
-                                    public void onAnimationRepeat(Animation animation) {
-
-                                    }
-                                });
-                            }
-                        }, 1500);
-
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                com1.startAnimation(animationLr);
-                                animationLr.setAnimationListener(new Animation.AnimationListener() {
-                                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                                    @Override
-                                    public void onAnimationStart(Animation animation) {
-                                        final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
-                                        player.start();
-
-                                        com1.setVisibility(View.VISIBLE);
-                                        com1.setImageAlpha(1000);
-
-                                        player.stop();
-                                    }
-
-                                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                                    @Override
-                                    public void onAnimationEnd(Animation animation) {
-
-                                    }
-
-                                    @Override
-                                    public void onAnimationRepeat(Animation animation) {
-
-                                    }
-                                });
-                            }
-                        }, 3000);
+                            final Animation animationLr = AnimationUtils.loadAnimation(activity, R.anim.lefttoright);
+                            final Animation animationRl = AnimationUtils.loadAnimation(activity, R.anim.righttoleft);
 
 
-                        //cpu1.getCardDeck().remove(c1);
-                        //cpu1.setNumberOfCardsRemaining(cpu1.numberOfCardsRemaining-1);
-                        //cpu2.getCardDeck().remove(c2);
-                        //cpu2.setNumberOfCardsRemaining(cpu2.numberOfCardsRemaining-1);
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    com2.startAnimation(animationRl);
+                                    animationRl.setAnimationListener(new Animation.AnimationListener() {
+                                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                                        @Override
+                                        public void onAnimationStart(Animation animation) {
+                                            final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
+                                            player.start();
+                                            ComputerPlayerCardViews.hideCardFromPlayer2();
+
+                                            com2.setVisibility(View.VISIBLE);
+                                            com2.setImageAlpha(1000);
+
+                                            player.stop();
+                                        }
+
+                                        @Override
+                                        public void onAnimationEnd(Animation animation) {
+                                            //com2.setScaleX(com2.getScaleX());
+
+                                        }
+
+                                        @Override
+                                        public void onAnimationRepeat(Animation animation) {
+
+                                        }
+                                    });
+                                }
+                            }, 1500);
+
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    com1.startAnimation(animationLr);
+                                    animationLr.setAnimationListener(new Animation.AnimationListener() {
+                                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                                        @Override
+                                        public void onAnimationStart(Animation animation) {
+                                            final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
+                                            player.start();
+
+                                            com1.setVisibility(View.VISIBLE);
+                                            com1.setImageAlpha(1000);
+                                            ComputerPlayerCardViews.hideCardFromPlayer1();
+
+                                            player.stop();
+                                        }
+
+                                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                                        @Override
+                                        public void onAnimationEnd(Animation animation) {
+
+                                        }
+
+                                        @Override
+                                        public void onAnimationRepeat(Animation animation) {
+
+                                        }
+                                    });
+                                    game_page.cardTouch(true);
+
+                                }
+                            }, 3000);
+
+
+                            //cpu1.getCardDeck().remove(c1);
+                            //cpu1.setNumberOfCardsRemaining(cpu1.numberOfCardsRemaining-1);
+                            //cpu2.getCardDeck().remove(c2);
+                            //cpu2.setNumberOfCardsRemaining(cpu2.numberOfCardsRemaining-1);
 
 
 //                    ObjectAnimator ani = ObjectAnimator.ofFloat(com2, "rotation", 0f, 360f);
 //                    ani.setDuration(1500);
 //                    animatorSet.play(ani);
 //                    animatorSet.start();
-                        game_page.cardTouch(true);
+                        }
+                        //game_page.cardTouch(true);
                     }
-                }, 5000);
+                }, 6000);
 
             }
         }
@@ -811,6 +847,7 @@ public class Game {
                             public void onAnimationStart(Animation animation) {
                                 final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
                                 player.start();
+                                ComputerPlayerCardViews.hideCardFromPlayer1();
 
                                 com1.setImageAlpha(1000);
                             }
@@ -836,11 +873,12 @@ public class Game {
 //                    ani.setDuration(1500);
 //                    animatorSet.play(ani);
 //                    animatorSet.start();
+                        game_page.cardTouch(true);
+
                     }
                 }, 2000);
 
                 //com1.setImageResource(((AbComputerPlayer) pr.getWinner()).selectHighestCard().getImageSource());
-                game_page.cardTouch(true);
 
             } else {
 
@@ -874,6 +912,7 @@ public class Game {
                                     public void onAnimationStart(Animation animation) {
                                         final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
                                         player.start();
+                                        ComputerPlayerCardViews.hideCardFromPlayer2();
 
                                         com2.setVisibility(View.VISIBLE);
                                         com2.setImageAlpha(1000);
@@ -903,6 +942,7 @@ public class Game {
                                     public void onAnimationStart(Animation animation) {
                                         final MediaPlayer player = MediaPlayer.create(activity, R.raw.click_sound);
                                         player.start();
+                                        ComputerPlayerCardViews.hideCardFromPlayer1();
 
                                         com1.setVisibility(View.VISIBLE);
                                         com1.setImageAlpha(1000);
@@ -919,6 +959,8 @@ public class Game {
 
                                     }
                                 });
+                                game_page.cardTouch(true);
+
                             }
                         }, 3000);
 
@@ -933,7 +975,7 @@ public class Game {
 //                    ani.setDuration(1500);
 //                    animatorSet.play(ani);
 //                    animatorSet.start();
-                        game_page.cardTouch(true);
+                        //game_page.cardTouch(true);
                     }
                 }, 5000);
 
@@ -1054,6 +1096,7 @@ public class Game {
         AlertDialog dialog = builder.create();
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
         dialog.show();
 
     }
@@ -1087,6 +1130,9 @@ public class Game {
         //creating the new game should come-up here
 
 
+        ComputerPlayerCardViews.makeAllCardsVisible();
+
+
         //create new card-deck and player instances for the new game
         game_page.startGame();
 
@@ -1098,20 +1144,24 @@ public class Game {
         if(checkIndex % 3 == 1){
             if(SelectingTrumpComPlayer.getChances(cpu2)){
 
-                Log.println(Log.ERROR, "TAG", "Before selecting trumps" + this.trumps);
+                Log.println(Log.ERROR, "TAG", "Player 2 Before selecting trumps" + this.trumps);
 
                 this.trumps = SelectingTrumpComPlayer.getTrump(cpu2);
 
                 passTrumpToTheInterface(this.trumps);
-                Log.println( Log.ERROR, "TAG", "Player 2 Selected trump as : " + this.trumps);
 
-                Log.println(Log.ERROR, "TAG", "After selecting trumps: " + this.trumps);
+                Log.println(Log.ERROR, "TAG", "Player 2 After selecting trumps: " + this.trumps);
 
                 Toast.makeText(activity.getApplicationContext(), "Computer player 2 selected trump as " + this.trumps, Toast.LENGTH_LONG).show();
                 scoreLabel.setText(comPlayer2.getName());
                 myLabel.setText("My Team");
 
                 game.alterInstance( cpu2, humanPlayer, cpu1, humanPlayer, cpu1, cpu2, cpu2, this.trumps);
+
+                Log.println(Log.ERROR, "TAG", "in the new instance trumps: " + this.trumps);
+
+                game_page.cardTouch(true);
+
                 moveForwardWithCpuWin(cpu2);
             }
             else{
@@ -1125,19 +1175,24 @@ public class Game {
 
             if(SelectingTrumpComPlayer.getChances(cpu1)){
 
-                Log.println( Log.ERROR, "TAG", "Player 2 Selected trump as : " + this.trumps);
+                Log.println(Log.ERROR, "TAG", "Player 1 Before selecting trumps: " + this.trumps);
 
                 this.trumps = SelectingTrumpComPlayer.getTrump(cpu1);
-                Log.println( Log.ERROR, "TAG", "Player 1 Selected trump as : " + this.trumps);
                 passTrumpToTheInterface(this.trumps);
 
-                Log.println(Log.ERROR, "TAG", "After selecting trumps: " + this.trumps);
+                Log.println(Log.ERROR, "TAG", "Player 1 After selecting trumps: " + this.trumps);
                 
                 Toast.makeText(activity.getApplicationContext(), "Computer player 1 selected trump as " + this.trumps, Toast.LENGTH_LONG).show();
                 scoreLabel.setText(comPlayer1.getName());
                 myLabel.setText("My Team");
 
                 game.alterInstance( cpu1, humanPlayer, cpu2, humanPlayer, cpu1, cpu2, cpu1, this.trumps);
+
+                Log.println(Log.ERROR, "TAG", "in the new instance trumps: " + this.trumps);
+
+                game_page.cardTouch(false);
+
+
                 moveForwardWithCpuWin(cpu1);
 
             }
@@ -1184,6 +1239,7 @@ public class Game {
         AlertDialog dialog = getChances.create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
         dialog.show();
     }
 
@@ -1200,6 +1256,7 @@ public class Game {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         passTrumpToTheInterface(which);
+                        game_page.cardTouch(true);
                     }
                 })
 
@@ -1222,22 +1279,38 @@ public class Game {
         AlertDialog dialog = chooseTrump.create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
         dialog.show();
     }
 
+    public void setCardVisibility(boolean visibility){
+        final ImageView com1 = this.activity.findViewById(R.id.com1Card);
+        final ImageView com2 = this.activity.findViewById(R.id.com2Card);
+        final ImageView playerPlaceholder = this.activity.findViewById(R.id.playCard);
 
+        if(visibility == false){
+            com1.setVisibility(View.INVISIBLE);
+            com2.setVisibility(View.INVISIBLE);
+            playerPlaceholder.setVisibility(View.INVISIBLE);
+        }
+        else {
+            com1.setVisibility(View.VISIBLE);
+            com2.setVisibility(View.VISIBLE);
+            playerPlaceholder.setVisibility(View.VISIBLE);
 
+        }
+    }
 
 
     public void openDialog(){
 
         Log.println( Log.ERROR, "TAG", "Inside openDialog" );
 
-
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                setCardVisibility(false);
                 AlertDialog.Builder getChances = new AlertDialog.Builder(activity, R.style.AlertDialogStyle);
                 getChances.setMessage("Would you like to play the next round?")
                         .setTitle("♠ ♥ ♣ ♦")
@@ -1250,7 +1323,8 @@ public class Game {
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                ourInstance = null;
+                                activity.finish();
                             }
 
 
@@ -1260,6 +1334,7 @@ public class Game {
                 AlertDialog dialog = getChances.create();
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.setCancelable(false);
+                dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
                 dialog.show();
             }
         }, 3000);

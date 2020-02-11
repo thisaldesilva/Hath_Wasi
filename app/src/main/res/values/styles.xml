@@ -23,6 +23,13 @@
         <item name="android:headerBackground">@color/header</item>
         <item name="android:dialogCornerRadius">20dp</item>
 
+
     </style>
+
+    <style name="DialogSlide">
+        <item name="android:windowEnterAnimation">@anim/fadein</item>
+        <item name="android:windowExitAnimation">@anim/fadeout</item>
+    </style>
+
 
 </resources>

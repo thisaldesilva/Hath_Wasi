@@ -66,9 +66,9 @@ public class scores_page extends AppCompatActivity {
         for (int i = 0; i < 10; i++ ){
 
             if ( i >= scoresBoard.getNumberOfScores() ){
-                score[i][0].setText("Unavailable");
-                score[i][1].setText("Unavailable");
-                score[i][2].setText("Unavailable");
+                score[i][0].setText(" - ");
+                score[i][1].setText(" - ");
+                score[i][2].setText(" - ");
             }
 
             else{
