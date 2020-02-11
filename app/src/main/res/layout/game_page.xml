@@ -542,10 +542,12 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/confetti" />
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/confetti2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="68dp"
         android:foregroundGravity="center_horizontal|center_vertical"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -553,7 +555,6 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/confetti_2" />
-
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/sadface"
@@ -587,7 +588,7 @@
         android:id="@+id/textViewComPlayer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="88dp"
         android:text="CPU 1"
         android:textColor="#F5F2F2"
@@ -599,10 +600,20 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="88dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="50dp"
         android:text="CPU 2"
         android:textColor="#F5F2F2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewRoundTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="#F1EDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
