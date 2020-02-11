@@ -43,41 +43,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void exit_game(View view) {
+        Log.println( Log.ERROR, "TAG", "Inside openDialog exit game" );
 
-            Log.println( Log.ERROR, "TAG", "Inside openDialog exit game" );
-
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    final AlertDialog.Builder exitGame = new AlertDialog.Builder( getApplicationContext(), R.style.AlertDialogStyle);
-                    exitGame.setMessage("Do you want to Exit?")
-                            .setTitle("♠ ♥ ♣ ♦")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    System.exit(0);
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
+        final AlertDialog.Builder exitGame = new AlertDialog.Builder( this, R.style.AlertDialogStyle);
+        exitGame.setMessage("Are you sure you want to Exit?")
+                .setTitle("♠ ♥ ♣ ♦")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        System.exit(0);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
 
 
 
-                            });
+                });
+        AlertDialog dialog = exitGame.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
+        dialog.show();
 
-                    AlertDialog dialog = exitGame.create();
-                    dialog.setCanceledOnTouchOutside(false);
-                    dialog.setCancelable(false);
-                    dialog.getWindow().getAttributes().windowAnimations = R.style.DialogSlide;
-                    dialog.show();
-                }
-            }, 3000);
-
-            Log.println( Log.ERROR, "TAG", "The exit tag" );
+        Log.println( Log.ERROR, "TAG", "Inside openDialog exit game in the end" );
     }
+
 }
 
