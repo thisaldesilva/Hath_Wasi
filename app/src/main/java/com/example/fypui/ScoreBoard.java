@@ -1,4 +1,6 @@
 package com.example.fypui;
+import java.util.Arrays;
+
 
 import java.lang.reflect.Array;
 
@@ -7,7 +9,7 @@ public class ScoreBoard {
     private static int numberOfScores;
     private GameScore scores[];
 
-    public int getNumberOfScores() {
+    public static int getNumberOfScores() {
         return numberOfScores;
     }
 
@@ -22,17 +24,16 @@ public class ScoreBoard {
 
     public static ScoreBoard getInstance() {
 
-        if(ourInstance == null){
+        if (ourInstance == null) {
             ourInstance = new ScoreBoard();
         }
         return ourInstance;
     }
 
-    public static boolean gameFinish(){
-        if(numberOfScores >= 10){
+    public static boolean gameFinish() {
+        if (numberOfScores >= 10) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -42,11 +43,23 @@ public class ScoreBoard {
     }
 
     public void setScore(GameScore score) {
-        if(this.numberOfScores < 10) {
+        if (this.numberOfScores < 10) {
             this.scores[this.numberOfScores++] = score;
         }
     }
 
+    public int getWinner() {
+        int[] totals = new int[]{0,0,0};
+
+        for (int i = 0; i < 10; i++){
+            totals[0] += scores[i].getHuman();
+            totals[1] += scores[i].getComputerPlayer1();
+            totals[2] += scores[i].getComputerPlayer2();
+        }
+
+        int max = Arrays.stream(totals).max().getAsInt();
+        return  max;
+    }
 
 
 }

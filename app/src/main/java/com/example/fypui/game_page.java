@@ -391,8 +391,6 @@ public class game_page extends AppCompatActivity {
     public void cardSelected(final View v){
         cardTouch(false);
 
-        Sounds.cardClick();
-
         Log.println( Log.ERROR, "TAG", "Selected ImageView ID: " + v.getId());
         final Card selectedCard = imageToCardMap.get(v.getId());
 
@@ -441,6 +439,8 @@ public class game_page extends AppCompatActivity {
                     @Override
                     public void onAnimationStart(Animation animation) {
                         image.setImageAlpha(1000);
+                        Sounds.cardClick();
+
                     }
 
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
