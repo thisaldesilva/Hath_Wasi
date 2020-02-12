@@ -9,6 +9,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import org.w3c.dom.Text;
 
 public class scores_page extends AppCompatActivity {
@@ -28,7 +30,7 @@ public class scores_page extends AppCompatActivity {
 
         //get the game scores into scores variable
         //this variable consist of gameScore objects that each old marks for each player for a entire game-round
-        ScoreBoard scoresBoard =  ScoreBoard.getInstance();
+        ScoreBoard scoresBoard = ScoreBoard.getInstance();
         GameScore scores[] = scoresBoard.getScores();
 
         score[0][0] = findViewById(R.id.game1_player);
@@ -63,21 +65,39 @@ public class scores_page extends AppCompatActivity {
         score[9][2] = findViewById(R.id.game10_cpu2);
 
 
-        for (int i = 0; i < 10; i++ ){
+        for (int i = 0; i < 10; i++) {
 
-            if ( i >= scoresBoard.getNumberOfScores() ){
+            if (i >= scoresBoard.getNumberOfScores()) {
                 score[i][0].setText(" - ");
                 score[i][1].setText(" - ");
                 score[i][2].setText(" - ");
-            }
-
-            else{
+            } else {
                 score[i][0].setText(String.valueOf(scores[i].getHuman()));
                 score[i][1].setText(String.valueOf(scores[i].getComputerPlayer1()));
                 score[i][2].setText(String.valueOf(scores[i].getComputerPlayer2()));
             }
         }
 
+        setMedal();
+
     }
 
+
+    public void setMedal() {
+        int player = ScoreBoard.getWinner();
+
+        if(player == 0){
+            LottieAnimationView playerMedal = this.findViewById(R.id.playerMedal);
+            playerMedal.setVisibility(LottieAnimationView.VISIBLE);
+
+        }
+        else if(player == 1 ){
+            LottieAnimationView cpu1Medal = this.findViewById(R.id.cpu1Medal);
+            cpu1Medal.setVisibility(LottieAnimationView.VISIBLE);
+        }
+        else {
+            LottieAnimationView cpu2Medal = this.findViewById(R.id.cpu2Medal);
+            cpu2Medal.setVisibility(LottieAnimationView.VISIBLE);
+        }
+    }
 }

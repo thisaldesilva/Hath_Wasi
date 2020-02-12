@@ -74,6 +74,7 @@ public class Game {
         this.playerTurnIndex = 0;
         this.gameFinish = false;
         this.sounds = new Sounds(activity);
+        updataRoundNumber();
 
 
     }
@@ -112,7 +113,14 @@ public class Game {
         this.humanPlayer = humanPlayer;
         this.invalidCardByHuman =  false;
         this.gameFinish = false;
+        updataRoundNumber();
 
+    }
+
+
+    public void updataRoundNumber(){
+        final TextView roundNumber = activity.findViewById(R.id.textViewRoundTag);
+        roundNumber.setText(ScoreBoard.getNumberOfScores() + 1 + "/10 Rounds");
     }
 
     public void  playNextMove(Card selectedCard){
@@ -1054,6 +1062,7 @@ public class Game {
 
     public void winningAnimation(){
         this.gameFinish = true;
+        Sounds.playWin();
         LottieAnimationView anim1 = this.activity.findViewById(R.id.confetti1);
         anim1.setVisibility(LottieAnimationView.VISIBLE);
 

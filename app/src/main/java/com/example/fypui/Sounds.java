@@ -13,32 +13,36 @@ public class Sounds {
     }
 
 
-    private static void playWin(){
+    static void playWin(){
         if(onOff){
-            final MediaPlayer player = MediaPlayer.create( activity, R.raw.win);
+            MediaPlayer player = MediaPlayer.create( activity, R.raw.win);
             player.start();
+            player = null;
         }
     }
 
     private static void playLost(){
         if(onOff){
-            final MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
+            MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
             player.start();
+            player = null;
         }
     }
 
     static void cardClick(){
         if(onOff){
-            final MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
+            MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
             player.start();
+            player = null;
         }
     }
 
 
     static void cardCollect(){
         if(onOff){
-            final MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
+            MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
             player.start();
+            player = null;
         }
     }
 
