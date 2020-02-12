@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,25 +8,27 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation"
-        android:layout_width="477dp"
-        android:layout_height="950dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:alpha="0.08"
         android:gravity="center"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/background" />
 
     <ImageView
         android:id="@+id/playBtn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="400dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="300dp"
         android:gravity="center"
         android:onClick="play_game"
         android:scaleType="fitCenter"
@@ -39,10 +40,10 @@
 
     <ImageView
         android:id="@+id/scoreBtn"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="405dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="73dp"
+        android:layout_marginTop="308dp"
         android:onClick="view_scores"
         android:scaleType="centerInside"
         android:src="@drawable/scoreboard"
@@ -52,9 +53,9 @@
 
     <ImageView
         android:id="@+id/infoBtn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="83dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="58dp"
         android:layout_marginTop="80dp"
         android:gravity="center"
         android:onClick="view_instructions"
@@ -66,9 +67,9 @@
 
     <ImageView
         android:id="@+id/exitBtn"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginLeft="68dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="73dp"
         android:layout_marginTop="90dp"
         android:gravity="center"
         android:onClick="exit_game"
@@ -82,7 +83,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="85dp"
         android:layout_marginTop="10dp"
         android:text="Play"
         android:textStyle="bold"
@@ -93,8 +94,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="14dp"
         android:text="Score Board"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView"
@@ -104,7 +105,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="10dp"
         android:text="Instructions"
         android:textStyle="bold"
@@ -115,8 +116,8 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
         android:text="Exit Game"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -124,13 +125,27 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/newapplogo" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="183dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="580dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
