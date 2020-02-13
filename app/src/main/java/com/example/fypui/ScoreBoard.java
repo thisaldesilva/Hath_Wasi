@@ -48,7 +48,7 @@ public class ScoreBoard {
         }
     }
 
-    public static int getWinner() {
+    public static int[] getTotals() {
         int[] totals = new int[]{0,0,0};
 
         for (int i = 0; i < ScoreBoard.getNumberOfScores(); i++){
@@ -56,21 +56,7 @@ public class ScoreBoard {
             totals[1] += scores[i].getComputerPlayer1();
             totals[2] += scores[i].getComputerPlayer2();
         }
-
-        // Initialize maximum element
-        int max = totals[0];
-        int index = 0;
-
-        // Traverse array elements from second and
-        // compare every element with current max
-        for (int i = 1; i < totals.length; i++)
-            if (totals[i] > max) {
-                max = totals[i];
-                index = i;
-            }
-
-        return index;
-
+        return totals;
     }
 
 
