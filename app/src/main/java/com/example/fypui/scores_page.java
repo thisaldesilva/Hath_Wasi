@@ -84,20 +84,32 @@ public class scores_page extends AppCompatActivity {
 
 
     public void setMedal() {
-        int player = ScoreBoard.getWinner();
+        int[] scores = ScoreBoard.getTotals();
 
-        if(player == 0){
-            LottieAnimationView playerMedal = this.findViewById(R.id.playerMedal);
-            playerMedal.setVisibility(LottieAnimationView.VISIBLE);
 
+        LottieAnimationView[] medals = new LottieAnimationView[]{this.findViewById(R.id.playerMedal),
+                this.findViewById(R.id.cpu1Medal), this.findViewById(R.id.cpu2Medal)};
+
+        LottieAnimationView playerMedal = this.findViewById(R.id.playerMedal);
+        playerMedal.setVisibility(LottieAnimationView.VISIBLE);
+
+        LottieAnimationView cpu1Medal = this.findViewById(R.id.cpu1Medal);
+        cpu1Medal.setVisibility(LottieAnimationView.VISIBLE);
+
+        LottieAnimationView cpu2Medal = this.findViewById(R.id.cpu2Medal);
+        cpu2Medal.setVisibility(LottieAnimationView.VISIBLE);
+
+        int max = scores[0];
+
+        for (int i = 1; i < scores.length; i++){
+            if(scores[i] > max){
+                max = scores[i];
+                medals[i-1].setVisibility(View.INVISIBLE);
+            }
+            else if(scores[i] < max){
+                medals[i].setVisibility(View.INVISIBLE);
+            }
         }
-        else if(player == 1 ){
-            LottieAnimationView cpu1Medal = this.findViewById(R.id.cpu1Medal);
-            cpu1Medal.setVisibility(LottieAnimationView.VISIBLE);
-        }
-        else {
-            LottieAnimationView cpu2Medal = this.findViewById(R.id.cpu2Medal);
-            cpu2Medal.setVisibility(LottieAnimationView.VISIBLE);
-        }
+
     }
 }
