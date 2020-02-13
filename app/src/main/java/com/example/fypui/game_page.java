@@ -58,6 +58,7 @@ public class game_page extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.game_page);
 
+
         cardArray[0] = findViewById(R.id.playerCard1);
         cardArray[1] = findViewById(R.id.playerCard2);
         cardArray[2] = findViewById(R.id.playerCard3);
@@ -90,8 +91,6 @@ public class game_page extends AppCompatActivity {
 
         //create the game with the starting player set as human
         Game game =  Game.getInstance(this, human, comPlayer1, comPlayer2, human, comPlayer1, comPlayer2, human, trump);
-
-
 
     }
 
