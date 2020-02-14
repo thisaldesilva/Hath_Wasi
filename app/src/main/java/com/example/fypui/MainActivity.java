@@ -24,14 +24,16 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
 
-        Configuration config = getResources().getConfiguration();
-        if (config.smallestScreenWidthDp <= 402){
-            setContentView(R.layout.activity_main);
-        }
+        setContentView(R.layout.activity_main);
 
-        else{
-            setContentView(R.layout.activity_main_medium_large);
-        }
+//        Configuration config = getResources().getConfiguration();
+//        if (config.smallestScreenWidthDp <= 402){
+//            setContentView(R.layout.activity_main);
+//        }
+//
+//        else{
+//            setContentView(R.layout.activity_main_medium_large);
+//        }
 
 
     }
