@@ -24,16 +24,18 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
 
-        setContentView(R.layout.activity_main);
 
-//        Configuration config = getResources().getConfiguration();
-//        if (config.smallestScreenWidthDp <= 402){
-//            setContentView(R.layout.activity_main);
-//        }
-//
-//        else{
-//            setContentView(R.layout.activity_main_medium_large);
-//        }
+        Configuration config = getResources().getConfiguration();
+        Log.println(Log.ERROR, "TAG", "Screen Width dp:" + config.screenWidthDp);
+        Log.println(Log.ERROR, "TAG", "Screen Height dp:" + config.screenHeightDp);
+        Log.println(Log.ERROR, "TAG", "SMallest Screen Width dp:" + config.smallestScreenWidthDp);
+        if (config.screenHeightDp <= 2340){
+            setContentView(R.layout.activity_main);
+        }
+
+        else{
+            setContentView(R.layout.activity_main_medium_large);
+        }
 
 
     }
