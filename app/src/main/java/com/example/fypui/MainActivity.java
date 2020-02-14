@@ -2,6 +2,7 @@ package com.example.fypui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -22,7 +23,16 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
+
+        Configuration config = getResources().getConfiguration();
+        if (config.smallestScreenWidthDp <= 402){
+            setContentView(R.layout.activity_main);
+        }
+
+        else{
+            setContentView(R.layout.activity_main_medium_large);
+        }
+
 
     }
 
