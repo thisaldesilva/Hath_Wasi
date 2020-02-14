@@ -104,6 +104,9 @@ public class scores_page extends AppCompatActivity {
         for (int i = 1; i < scores.length; i++){
             if(scores[i] > max){
                 max = scores[i];
+                if(i == 2){
+                    medals[i-2].setVisibility(View.INVISIBLE);
+                }
                 medals[i-1].setVisibility(View.INVISIBLE);
             }
             else if(scores[i] < max){

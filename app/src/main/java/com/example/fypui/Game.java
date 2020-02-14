@@ -52,7 +52,8 @@ public class Game {
 
 
     private static String trumps;
-    public Activity activity;
+
+    private static Activity activity;
 
 
     private Game(Activity _activity, Player singlePlayer, Player teamPlayer1, Player teamPlayer2, Player humanPlayer,
@@ -119,8 +120,12 @@ public class Game {
 
 
     public void updataRoundNumber(){
-        final TextView roundNumber = activity.findViewById(R.id.textViewRoundTag);
+        //TextView roundNumber = (TextView) activity.findViewById(R.id.textViewRoundTag);
+        //roundNumber.setText(ScoreBoard.getNumberOfScores() + 1 + "/10 Rounds");
+
+        final TextView roundNumber = (TextView) getActivity().findViewById(R.id.textViewRoundTag);
         roundNumber.setText(ScoreBoard.getNumberOfScores() + 1 + "/10 Rounds");
+
     }
 
     public void  playNextMove(Card selectedCard){
@@ -1516,6 +1521,14 @@ public class Game {
 
     public static void setOurInstance(Game ourInstance) {
         Game.ourInstance = ourInstance;
+    }
+
+    public static Activity getActivity() {
+        return activity;
+    }
+
+    public static void setActivity(Activity activity) {
+        Game.activity = activity;
     }
 
 }
