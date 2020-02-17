@@ -5,9 +5,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:width="200dp"
-            android:height="200dp"
-            android:src="@drawable/newapplogo"/>
+            android:src="@drawable/logo_splash"/>
 
     </item>
 </layer-list>
