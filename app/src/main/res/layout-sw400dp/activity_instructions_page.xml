@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#053D37"
+    tools:context=".instructions_page">
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to Play"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#F1F3F3"
+            android:textSize="25dp"
+            android:layout_marginTop="20dp"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="19dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="370dp"
+            android:layout_height="670dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:cursorVisible="false"
+            android:text="
+Hath Wasi is a traditional Sri Lankan card game which is played by only three players.
+
+To play this game, it uses only cards greater than 5 of all suits. Therefore the selected 36 cards will be dealt among the three players equally (12 each) and dealing of cards will happen anticlockwise.
+
+In the first round the human player will get the chance to bid for the game which means, the human player should check for 7 possible chances to win the game. If not the player should pass the bidding chance to the other player (This happens anticlockwise).
+
+In case, when all the players pass the chance, the round will be cancelled and the shuffling and dealing of cards will happen again and again till a player bids.
+
+The suit which was selected will be the trump for the round and it will be indicated in the middle of the status bar.
+
+The player who bids will be the individual team and the other players will be the opposition team."
+            android:textColor="#F1F3F3"
+            android:textSize="15dp"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="74dp" />
+
+    </LinearLayout>
+
+</ScrollView>
+
