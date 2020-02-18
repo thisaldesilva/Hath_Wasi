@@ -31,57 +31,24 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:cursorVisible="false"
-            android:text="- jsjsnjnnsjnsjnjsn"
+            android:text="Hath Wasi Introduction
+
+Hath Wasi is a traditional Sri Lankan card game which is played by only three players.
+
+To play this game, it uses only cards greater than 5 of all suits. Therefore the selected 36 cards will be dealt among the three players equally (12 each) and dealing of cards will happen anticlockwise.
+
+In the first round the human player will get the chance to bid for the game which means, the human player should check for 7 possible chances to win the game. If not the player should pass the bidding chance to the other player (This happens anticlockwise).
+
+In case, when all the players pass the chance, the round will be cancelled and the shuffling and dealing of cards will happen again and again till a player bids.
+
+The suit which was selected will be the trump for the round and it will be indicated in the middle of the status bar.
+
+The player who bids will be the individual team and the other players will be the opposition team."
             android:textColor="#F1F3F3"
             android:textSize="15dp"
             tools:layout_editor_absoluteX="26dp"
             tools:layout_editor_absoluteY="74dp" />
 
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button One" />
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button Two" />
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button Three" />
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button Four" />
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button Five" />
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button Six" />
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button Seven" />
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button Eight" />
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:text="Button Nine" />
 
     </LinearLayout>
 

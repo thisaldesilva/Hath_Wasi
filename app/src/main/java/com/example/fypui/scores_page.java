@@ -17,6 +17,7 @@ public class scores_page extends AppCompatActivity {
 
     private static TextView[][] score = new TextView[10][3];
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,13 +91,13 @@ public class scores_page extends AppCompatActivity {
         LottieAnimationView[] medals = new LottieAnimationView[]{this.findViewById(R.id.playerMedal),
                 this.findViewById(R.id.cpu1Medal), this.findViewById(R.id.cpu2Medal)};
 
-        LottieAnimationView playerMedal = this.findViewById(R.id.playerMedal);
+        LottieAnimationView playerMedal = (LottieAnimationView) this.findViewById(R.id.playerMedal);
         playerMedal.setVisibility(LottieAnimationView.VISIBLE);
 
-        LottieAnimationView cpu1Medal = this.findViewById(R.id.cpu1Medal);
+        LottieAnimationView cpu1Medal = (LottieAnimationView) this.findViewById(R.id.cpu1Medal);
         cpu1Medal.setVisibility(LottieAnimationView.VISIBLE);
 
-        LottieAnimationView cpu2Medal = this.findViewById(R.id.cpu2Medal);
+        LottieAnimationView cpu2Medal = (LottieAnimationView) this.findViewById(R.id.cpu2Medal);
         cpu2Medal.setVisibility(LottieAnimationView.VISIBLE);
 
         int max = scores[0];

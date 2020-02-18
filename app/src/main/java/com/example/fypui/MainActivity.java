@@ -25,18 +25,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
-//        Configuration config = getResources().getConfiguration();
-//        Log.println(Log.ERROR, "TAG", "Screen Width dp:" + config.screenWidthDp);
-//        Log.println(Log.ERROR, "TAG", "Screen Height dp:" + config.screenHeightDp);
-//        Log.println(Log.ERROR, "TAG", "SMallest Screen Width dp:" + config.smallestScreenWidthDp);
-//        if (config.screenHeightDp <= 620){
-//            setContentView(R.layout.activity_main);
-//        }
-//
-//        else{
-//            setContentView(R.layout.activity_main_medium_large);
-//        }
-
         setContentView(R.layout.activity_main);
     }
 
