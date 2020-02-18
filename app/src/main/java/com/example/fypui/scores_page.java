@@ -101,16 +101,26 @@ public class scores_page extends AppCompatActivity {
 
         int max = scores[0];
 
-        for (int i = 1; i < scores.length; i++){
-            if(scores[i] > max){
-                max = scores[i];
-                if(i == 2){
-                    medals[i-2].setVisibility(View.INVISIBLE);
+
+        if(scores[0] == 0 && scores[1] == 0 && scores[2] == 0){
+            medals[0].setVisibility(View.INVISIBLE);
+            medals[1].setVisibility(View.INVISIBLE);
+            medals[2].setVisibility(View.INVISIBLE);
+        }
+
+        else {
+
+            for (int i = 1; i < scores.length; i++) {
+
+                if (scores[i] > max) {
+                    max = scores[i];
+                    if (i == 2) {
+                        medals[i - 2].setVisibility(View.INVISIBLE);
+                    }
+                    medals[i - 1].setVisibility(View.INVISIBLE);
+                } else if (scores[i] < max) {
+                    medals[i].setVisibility(View.INVISIBLE);
                 }
-                medals[i-1].setVisibility(View.INVISIBLE);
-            }
-            else if(scores[i] < max){
-                medals[i].setVisibility(View.INVISIBLE);
             }
         }
 
