@@ -13,14 +13,11 @@
         android:layout_height="1000dp"
         android:alpha="0.08"
         android:gravity="center"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="center"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/background"
-        tools:layout_editor_absoluteY="-76dp" />
+        tools:layout_editor_absoluteY="-286dp" />
 
     <ImageView
         android:id="@+id/playBtn"
