@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#032420"
@@ -216,7 +216,7 @@
         android:layout_marginTop="10dp"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/card_behind" />
 
 
@@ -229,7 +229,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/hearts_a" />
 
     <ImageView
@@ -241,7 +241,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard1"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/diamonds6" />
 
     <ImageView
@@ -253,7 +253,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard2"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/spades8" />
 
     <ImageView
@@ -265,7 +265,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard3"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/clubs10" />
 
     <ImageView
@@ -277,7 +277,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard4"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/clubs6" />
 
     <ImageView
@@ -289,7 +289,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard5"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/diamonds9" />
 
     <ImageView
@@ -301,7 +301,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard6"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/diamonds_j" />
 
     <ImageView
@@ -313,7 +313,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard7"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/clubs_k" />
 
     <ImageView
@@ -325,7 +325,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard8"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/diamonds10" />
 
     <ImageView
@@ -337,7 +337,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard9"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/hearts8" />
 
     <ImageView
@@ -349,7 +349,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard10"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/spades_a" />
 
     <ImageView
@@ -361,7 +361,7 @@
         android:clickable="true"
         android:onClick="cardSelected"
         app:layout_constraintStart_toStartOf="@+id/playerCard11"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/spades_q" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -380,7 +380,7 @@
         android:adjustViewBounds="false"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:srcCompat="@drawable/card_behind" />
 
     <ImageView
@@ -514,7 +514,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/com2Card"
         app:layout_constraintStart_toEndOf="@+id/com1Card"
-        app:layout_constraintTop_toBottomOf="@id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@id/frame"
         app:srcCompat="@drawable/card_behind" />
 
     <ImageView
@@ -525,7 +525,7 @@
         android:layout_marginTop="50dp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@id/frame"
         app:srcCompat="@drawable/card_behind" />
 
     <ImageView
@@ -536,7 +536,7 @@
         android:layout_marginEnd="60dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@id/frame"
         app:srcCompat="@drawable/card_behind" />
 
 
@@ -548,7 +548,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@id/frame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/confetti" />
@@ -562,7 +562,7 @@
         android:foregroundGravity="center_horizontal|center_vertical"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@id/frame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/confetti_2" />
@@ -576,7 +576,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/sad" />
@@ -590,7 +590,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frame"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/draw" />
