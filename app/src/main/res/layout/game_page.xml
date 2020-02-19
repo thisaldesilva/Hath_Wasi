@@ -224,144 +224,135 @@
         android:id="@+id/playerCard1"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="180dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintEnd_toStartOf="@+id/playerCard4"
+        app:layout_constraintTop_toTopOf="@+id/playerCard2"
         app:srcCompat="@drawable/hearts_a" />
 
     <ImageView
         android:id="@+id/playerCard2"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard1"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintEnd_toStartOf="@+id/playerCard5"
+        app:layout_constraintTop_toTopOf="@+id/playerCard3"
         app:srcCompat="@drawable/diamonds6" />
 
     <ImageView
         android:id="@+id/playerCard3"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard2"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintEnd_toStartOf="@+id/playerCard6"
+        app:layout_constraintTop_toTopOf="@+id/playerCard4"
         app:srcCompat="@drawable/spades8" />
 
     <ImageView
         android:id="@+id/playerCard4"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginEnd="30dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard3"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintEnd_toEndOf="@+id/playerCard5"
+        app:layout_constraintTop_toTopOf="@+id/playerCard5"
         app:srcCompat="@drawable/clubs10" />
 
     <ImageView
         android:id="@+id/playerCard5"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginEnd="30dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard4"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintBottom_toBottomOf="@+id/playerCard6"
+        app:layout_constraintEnd_toEndOf="@+id/playerCard6"
+        app:layout_constraintTop_toTopOf="@+id/playerCard6"
         app:srcCompat="@drawable/clubs6" />
 
     <ImageView
         android:id="@+id/playerCard6"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard5"
+        app:layout_constraintBottom_toBottomOf="@+id/confetti2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/confetti2"
         app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/diamonds9" />
 
     <ImageView
         android:id="@+id/playerCard7"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="30dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard6"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintStart_toEndOf="@+id/playerCard3"
+        app:layout_constraintTop_toTopOf="@+id/playerCard6"
         app:srcCompat="@drawable/diamonds_j" />
 
     <ImageView
         android:id="@+id/playerCard8"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="30dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard7"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintStart_toEndOf="@+id/playerCard4"
+        app:layout_constraintTop_toTopOf="@+id/playerCard7"
         app:srcCompat="@drawable/clubs_k" />
 
     <ImageView
         android:id="@+id/playerCard9"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="30dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard8"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintStart_toEndOf="@+id/playerCard5"
+        app:layout_constraintTop_toTopOf="@+id/playerCard8"
         app:srcCompat="@drawable/diamonds10" />
 
     <ImageView
         android:id="@+id/playerCard10"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="30dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard9"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintStart_toEndOf="@+id/playerCard6"
+        app:layout_constraintTop_toTopOf="@+id/playerCard9"
         app:srcCompat="@drawable/hearts8" />
 
     <ImageView
         android:id="@+id/playerCard11"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="30dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard10"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintStart_toEndOf="@+id/playerCard7"
+        app:layout_constraintTop_toTopOf="@+id/playerCard10"
         app:srcCompat="@drawable/spades_a" />
 
     <ImageView
         android:id="@+id/playerCard12"
         android:layout_width="90dp"
         android:layout_height="148dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="180dp"
+        android:layout_gravity="center"
+
+        android:layout_marginStart="30dp"
         android:clickable="true"
         android:onClick="cardSelected"
-        app:layout_constraintStart_toStartOf="@+id/playerCard11"
-        app:layout_constraintTop_toBottomOf="@+id/frame"
+        app:layout_constraintStart_toEndOf="@+id/playerCard8"
+        app:layout_constraintTop_toTopOf="@+id/playerCard11"
+        app:layout_constraintVertical_weight="1"
         app:srcCompat="@drawable/spades_q" />
 
     <androidx.constraintlayout.widget.Guideline
