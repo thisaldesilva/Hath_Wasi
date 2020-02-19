@@ -10,17 +10,17 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation"
         android:layout_width="match_parent"
-        android:layout_height="850dp"
+        android:layout_height="1000dp"
         android:alpha="0.08"
         android:gravity="center"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/background" />
+        app:lottie_rawRes="@raw/background"
+        tools:layout_editor_absoluteY="-76dp" />
 
     <ImageView
         android:id="@+id/playBtn"
