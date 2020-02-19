@@ -7,9 +7,9 @@
     android:background="#053D37"
     tools:context=".MainActivity">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
-        android:layout_width="904dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#032420"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,55 +23,66 @@
             android:id="@+id/textViewMyTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="15dp"
             android:gravity="center"
             android:text="My Team"
             android:textAlignment="center"
-            android:textColor="#F1F3F3" />
+            android:textColor="#F1F3F3"
+            app:layout_constraintEnd_toStartOf="@+id/trumpSelected"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="26dp" />
 
         <TextView
             android:id="@+id/textViewMyScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="35dp"
             android:text="0"
-            android:textColor="#F1F3F3" />
+            android:textColor="#F1F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/textViewMyTeam"
+            app:layout_constraintStart_toStartOf="@+id/textViewMyTeam"
+            tools:layout_editor_absoluteY="45dp" />
 
         <TextView
             android:id="@+id/trumpSelected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
+            android:layout_width="135dp"
+            android:layout_height="70dp"
             android:layout_marginTop="15dp"
+            android:gravity="center|center_horizontal|center_vertical"
             android:text="No Trump"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.10" />
 
         <TextView
             android:id="@+id/textViewOpponent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="540dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Opponent"
             android:textAlignment="center"
-            android:textColor="#F1F3F3" />
+            android:textColor="#F1F3F3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/trumpSelected"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewOpponentScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="560dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="8dp"
             android:text="0"
-            android:textColor="#F1F3F3" />
+            android:textColor="#F1F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/textViewOpponent"
+            app:layout_constraintStart_toStartOf="@+id/textViewOpponent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOpponent" />
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/comPlayer2Card1"
