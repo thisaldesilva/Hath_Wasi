@@ -1029,7 +1029,7 @@ public class Game {
                     openDialog();
                 }
                 else if(this.singlePlayer.getName() == "Computer Player 2"){
-                    ScoreBoard.getInstance().setScore(new GameScore(1,1,2));
+                    ScoreBoard.getInstance().setScore(new GameScore(1,1,0));
                     winningAnimation();
                     openDialog();
                 }
