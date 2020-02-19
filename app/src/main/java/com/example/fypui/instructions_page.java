@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 public class instructions_page extends AppCompatActivity {
 
@@ -19,6 +18,5 @@ public class instructions_page extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_instructions_page);
-
     }
 }
