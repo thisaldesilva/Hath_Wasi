@@ -455,7 +455,6 @@ public class game_page extends AppCompatActivity {
                             }, 5700);
 
                         //image.setImageResource(R.drawable.clubs6);
-
                         //image.setVisibility(View.INVISIBLE);
                     }
 

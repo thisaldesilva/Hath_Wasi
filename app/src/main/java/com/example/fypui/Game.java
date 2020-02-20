@@ -496,7 +496,7 @@ public class Game {
                         }
 
                     }
-                }, 6000);
+                }, 3000);
 
                 Log.println( Log.ERROR, "TAG", "inside try block 3" );
 
