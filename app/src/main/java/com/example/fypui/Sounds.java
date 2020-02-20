@@ -6,48 +6,53 @@ import android.media.MediaPlayer;
 public class Sounds {
     private static boolean onOff;
     private static Activity activity;
+    private static MediaPlayer player;
+    //private MediaPlayer player;
 
     Sounds(Activity activity){
         this.onOff = true;
         this.activity = activity;
+        this.player = MediaPlayer.create(activity, R.raw.click_sound);
     }
 
 
-    static void playWin(){
+   public static void playWin(){
         if(onOff){
-            MediaPlayer player = MediaPlayer.create( activity, R.raw.win);
-            player.start();
-            player = null;
+            playSound(R.raw.win);
         }
     }
 
-    private static void playLost(){
+    public static void playLost(){
         if(onOff){
-            MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
-            player.start();
-            player = null;
+            playSound(R.raw.sadsound);
         }
     }
 
-    static void cardClick(){
+   public static void cardClick(){
         if(onOff){
-            MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
-            player.start();
-            player = null;
+            playSound(R.raw.click_sound);
         }
     }
 
 
-    static void cardCollect(){
+   public static void cardCollect(){
         if(onOff){
-            MediaPlayer player = MediaPlayer.create( activity, R.raw.click_sound);
-            player.start();
-            player = null;
+            playSound(R.raw.card_collectt);
+
         }
     }
 
 
-
+    private static void playSound(int soundID){
+        final MediaPlayer mp = MediaPlayer.create( activity ,soundID);
+        mp.start();
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mp.release();
+            }
+        });
+    }
 
 
 
