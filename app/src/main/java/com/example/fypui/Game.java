@@ -1079,6 +1079,7 @@ public class Game {
         this.gameFinish = true;
         LottieAnimationView anim1 = this.activity.findViewById(R.id.sadface);
         anim1.setVisibility(LottieAnimationView.VISIBLE);
+        Sounds.playLost();
     }
 
     public void popUpDialog(String message, String title){
