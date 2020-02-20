@@ -167,7 +167,7 @@ public class Game {
 
 
 
-                GameRound gameRound = new GameRound( this.cpu1, this.cpu1.selectSmallestCardFromCategory(selectedCard.getCategory()),
+                GameRound gameRound = new GameRound( this.cpu1, this.cpu1.SelectTheHigHighestCardFromCategory(selectedCard.getCategory()),
                         this.cpu2, this.cpu2.selectSmallestCardFromCategory(selectedCard.getCategory()),
                         this.humanPlayer, selectedCard, selectedCard.getCategory() , this.trumps );
 
@@ -333,7 +333,7 @@ public class Game {
                 Log.println(Log.ERROR, "TAG", "passing trumps in block 1 : " + this.trumps);
 
                 if(this.invalidCardByHuman == false) {
-                    com2Card = this.cpu2.selectSmallestCardFromCategory(selectedCard.getCategory());
+                    com2Card = this.cpu2.SelectTheHigHighestCardFromCategory(selectedCard.getCategory());
                     Log.println(Log.ERROR, "TAG", "inside the if condition");
                 }
 
