@@ -165,10 +165,11 @@ public class Game {
 
                 Log.println(Log.ERROR, "TAG", "passing trumps in block 1 : " + this.trumps);
 
+                Card card1 = this.cpu1.SelectTheHigHighestCardFromCategory(selectedCard.getCategory());
+                Card card2 = this.cpu2.selectSmallestCardFromCategory(selectedCard.getCategory());
 
-
-                GameRound gameRound = new GameRound( this.cpu1, this.cpu1.SelectTheHigHighestCardFromCategory(selectedCard.getCategory()),
-                        this.cpu2, this.cpu2.selectSmallestCardFromCategory(selectedCard.getCategory()),
+                GameRound gameRound = new GameRound( this.cpu1,card1,
+                        this.cpu2, card2,
                         this.humanPlayer, selectedCard, selectedCard.getCategory() , this.trumps );
 
                 this.playedRounds[this.numberOfRoundsPlayed++] = gameRound;
@@ -185,10 +186,11 @@ public class Game {
                 com2.setVisibility(View.INVISIBLE);
 
 
-                this.cpu1.getCardDeck().remove(this.cpu1.selectSmallestCardFromCategory(selectedCard.getCategory()));
+
+                this.cpu1.getCardDeck().remove(card1);
                 this.cpu1.setNumberOfCardsRemaining(cpu1.getNumberOfCardsRemaining()-1);
 
-                this.cpu2.getCardDeck().remove(this.cpu2.selectSmallestCardFromCategory(selectedCard.getCategory()));
+                this.cpu2.getCardDeck().remove(card2);
                 this.cpu2.setNumberOfCardsRemaining(cpu2.getNumberOfCardsRemaining()-1);
 
                 cpu1.displayDetails();
@@ -648,6 +650,8 @@ public class Game {
                             playerPlaceholder.setVisibility(View.INVISIBLE);
                             com2.setVisibility(View.INVISIBLE);
 
+                            Sounds.cardCollect();
+
                             c1 = ((AbComputerPlayer) pr.getWinner()).selectHighestCard();
                             com1.setImageResource(c1.getImageSource());
                             com1.setVisibility(View.VISIBLE);
@@ -715,6 +719,8 @@ public class Game {
                             com1.setImageResource(c1.getImageSource());
                             com2.setVisibility(View.INVISIBLE);
                             com1.setVisibility(View.INVISIBLE);
+                            Sounds.cardCollect();
+
 
                             final Animation animationLr = AnimationUtils.loadAnimation(activity, R.anim.lefttoright);
                             final Animation animationRl = AnimationUtils.loadAnimation(activity, R.anim.righttoleft);
