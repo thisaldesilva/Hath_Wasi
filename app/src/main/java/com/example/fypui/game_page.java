@@ -103,7 +103,7 @@ public class game_page extends AppCompatActivity {
 
     public static void startGame(){
         DeckOfCards card = new DeckOfCards();
-        human = new Player("Donald Trump", card);
+        human = new Player("Human Player", card);
 
         comPlayer1 = new ComputerPlayerAgresive("Computer Player 1", card);
         comPlayer2 = new ComputerPlayerAgresive("Computer Player 2", card);
@@ -293,11 +293,11 @@ public class game_page extends AppCompatActivity {
                                 game.moveForwardWithCpuWin(comPlayer1);
 
                             } else {
-                                Toast.makeText(getApplicationContext(), "yoohooooo " + trump, Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Game Round Cancelled. Reshuffling Cards ", Toast.LENGTH_LONG).show();
                                 openDialog();
 
                                 DeckOfCards card = new DeckOfCards();
-                                human = new Player("Donald Trump", card);
+                                human = new Player("Human Player", card);
 
                                 comPlayer1 = new ComputerPlayerAgresive("Computer Player 1", card);
                                 comPlayer2 = new ComputerPlayerAgresive("Computer Player 2", card);
