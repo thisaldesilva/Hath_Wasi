@@ -1,8 +1,4 @@
-package com.example.fypui;
-import java.util.Arrays;
-
-
-import java.lang.reflect.Array;
+package wasanawa.hath.fypui;
 
 public class ScoreBoard {
     private static ScoreBoard ourInstance;

@@ -1,4 +1,4 @@
-package com.example.fypui;
+package wasanawa.hath.fypui;
 
 import android.app.Activity;
 import android.media.MediaPlayer;

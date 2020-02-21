@@ -1,4 +1,4 @@
-package com.example.fypui;
+package wasanawa.hath.fypui;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

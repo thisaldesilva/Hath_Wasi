@@ -1,7 +1,6 @@
-package com.example.fypui;
+package wasanawa.hath.fypui;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 

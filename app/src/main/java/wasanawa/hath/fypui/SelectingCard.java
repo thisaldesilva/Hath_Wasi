@@ -1,4 +1,4 @@
-package com.example.fypui;
+package wasanawa.hath.fypui;
 
 public interface SelectingCard {
     public Card selectSmallestCardFromCategory(String category);

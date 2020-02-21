@@ -1,12 +1,9 @@
-package com.example.fypui;
+package wasanawa.hath.fypui;
 
-import android.animation.Animator;
 import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
@@ -21,9 +18,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 
 import com.airbnb.lottie.LottieAnimationView;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class Game {
 
