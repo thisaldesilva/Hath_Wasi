@@ -45,6 +45,8 @@ public class Game {
     private static Sounds sounds;
 
 
+
+
     private static String trumps;
 
     private static Activity activity;
@@ -1530,6 +1532,10 @@ public class Game {
 
     public static void setActivity(Activity activity) {
         Game.activity = activity;
+    }
+
+    public Player getLastWinner(){
+        return playedRounds[numberOfRoundsPlayed].getWinner();
     }
 
 }
