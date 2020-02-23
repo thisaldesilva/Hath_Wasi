@@ -5,4 +5,7 @@ public interface SelectingCard {
     public Card SelectTheHigHighestCardFromCategory(String category);
     public Card SelectRandomCardFromCategory(String category);
     public Card selectHighestCard();
+    public Card SelectCard(Card card);
+
+
 }

@@ -61,4 +61,9 @@ public class ComputerPlayerAgresive extends AbComputerPlayer {
         return CardDeck.get(rand.nextInt(CardDeck.size()));
 
     }
+
+    @Override
+    public Card SelectCard(Card card){
+        return null;
+    }
 }

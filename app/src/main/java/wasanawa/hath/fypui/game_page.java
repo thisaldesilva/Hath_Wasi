@@ -102,7 +102,7 @@ public class game_page extends AppCompatActivity {
         DeckOfCards card = new DeckOfCards();
         human = new Player("Human Player", card);
 
-        comPlayer1 = new ComputerPlayerAgresive("Computer Player 1", card);
+        comPlayer1 = new GuyPlayer("Computer Player 1", card);
         comPlayer2 = new ComputerPlayerAgresive("Computer Player 2", card);
 
 

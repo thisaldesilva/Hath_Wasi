@@ -45,6 +45,11 @@ public class HimashaPlayer extends AbComputerPlayer {
         return Collections.max(CardDeck);
     }
 
+    @Override
+    public Card SelectCard(Card card) {
+        return null;
+    }
+
     //overriding method
     public Card selectSmallestCard() {
         return Collections.min(CardDeck);
