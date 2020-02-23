@@ -144,11 +144,12 @@ public class GuyPlayer extends AbComputerPlayer {
 
         // Else if player is a team player..
         else {
+
             Player lastPlayer = game.getLastWinner();
             int index = 0;
             int smallestCard = 0;
 
-            if (this.getName() == game.getTeamPlayer1().getName() || this.getName() == game.getTeamPlayer2().getName()){
+//            if (this.getName() == game.getTeamPlayer1().getName() || this.getName() == game.getTeamPlayer2().getName()){
 
                 for (int i=0; i < getNoOfCards(); i++){
 
@@ -181,47 +182,26 @@ public class GuyPlayer extends AbComputerPlayer {
 
                     // If trump category found, get the smallest card from that category.
                     if(trumpFound){
-                        return trumpCategory[index - 1];
-                    }
 
-                    // Else, check other categories and get the smallest card and play.
-                    else{
-
-                        for (int i = 0; i < getNoOfCards(); i++){
-
-                            if(smallestCard > getCardFromIndex(i).getNumber()){
-                                smallestCard = getCardFromIndex(i).getNumber();
-                                index = i;
-                            }
+                        // If the played card is not an Ace.
+                        if (somecard.getNumber() != 14){
+                            return trumpCategory[index - 1];
                         }
 
-                        return getCardFromIndex(index);
-
                     }
+                    // Else, check other categories and get the smallest card and play.
+                    for (int i = 0; i < getNoOfCards(); i++){
+
+                        if(smallestCard > getCardFromIndex(i).getNumber()){
+                            smallestCard = getCardFromIndex(i).getNumber();
+                            index = i;
+                        }
+                    }
+
+                    return getCardFromIndex(index);
+
                 }
-            }
-
-
-
-
-
+            //}
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
