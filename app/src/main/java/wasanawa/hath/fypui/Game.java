@@ -22,7 +22,6 @@ import com.airbnb.lottie.LottieAnimationView;
 public class Game {
 
 
-
     private static Game ourInstance;
 
     private static Player singlePlayer;
@@ -113,7 +112,6 @@ public class Game {
         updataRoundNumber();
 
     }
-
 
     public void updataRoundNumber(){
         //TextView roundNumber = (TextView) activity.findViewById(R.id.textViewRoundTag);
