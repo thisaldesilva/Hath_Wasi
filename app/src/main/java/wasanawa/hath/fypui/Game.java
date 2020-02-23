@@ -707,7 +707,7 @@ public class Game {
 
 
                             c2 = ((AbComputerPlayer) pr.getWinner()).selectHighestCard();
-                            c1 =  cpu2.SelectCard(c1);
+                            c1 =  cpu1.SelectCard(c2);
                             //c1 = cpu1.selectSmallestCardFromCategory(c2.getCategory());
 
                             com2.setImageResource(c2.getImageSource());
@@ -891,7 +891,7 @@ public class Game {
                         playerPlaceholder.setVisibility(View.INVISIBLE);
 
                         c2 = cpu2.selectHighestCard();
-                        c1 = cpu1.SelectCard(c2);
+                        c1 = cpu1.selectSmallestCardFromCategory(c2.getCategory());
 
                         com2.setImageResource(c2.getImageSource());
                         com1.setImageResource(c1.getImageSource());
@@ -1534,7 +1534,7 @@ public class Game {
     }
 
     public Player getLastWinner(){
-        return playedRounds[numberOfRoundsPlayed].getWinner();
+        return this.playedRounds[this.numberOfRoundsPlayed-1].getWinner();
     }
 
 }
