@@ -547,4 +547,33 @@ public class GuyPlayer extends AbComputerPlayer {
         }
     }
 
+
+    public Card SelectCard() {
+
+        int highestCard = 0, indexOfhighCards = 0, indexOfTrumpCards = 0, indexOfOtherCards = 0;
+        Card trumpCards[] = new Card[12];
+        Card otherCards[] = new Card[12];
+        Card higherCards[] = new Card[12];
+
+        for (int i = 0; i < getNoOfCards(); i++) {
+            if (getCardFromIndex(i).getCategory() == game.getTrumps()) {
+                trumpCards[indexOfTrumpCards] = getCardFromIndex(i);
+                indexOfTrumpCards++;
+            } else if ((getCardFromIndex(i).getCategory() != game.getTrumps()) && (getCardFromIndex(i).getNumber() > 10)) {
+                higherCards[indexOfhighCards] = getCardFromIndex(i);
+                indexOfhighCards++;
+            } else {
+                otherCards[indexOfOtherCards] = getCardFromIndex(i);
+                indexOfOtherCards++;
+            }
+        }
+
+        if (higherCards.length != 0) {
+            return higherCards[0];
+        } else if (otherCards.length != 0) {
+            return otherCards[0];
+        } else {
+            return trumpCards[0];
+        }
+    }
 }
