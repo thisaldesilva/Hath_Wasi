@@ -544,7 +544,9 @@ public class GuyPlayer extends AbComputerPlayer {
                     }
                 }
             }
+
         }
+        return null;
     }
 
 

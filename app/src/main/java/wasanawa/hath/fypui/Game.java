@@ -257,17 +257,6 @@ public class Game {
                 }, 3000);
 
 
-//
-//                ObjectAnimator rotataeAnimation1 = ObjectAnimator.ofFloat(com1, "rotation", 0f, 360f);
-//                ObjectAnimator rotataeAnimation2 = ObjectAnimator.ofFloat(com2, "rotation", 0f, 360f);
-//                rotataeAnimation1.setDuration(1500);
-//                rotataeAnimation2.setDuration(2000);
-
-//                final AnimatorSet animatorSet = new AnimatorSet();
-//                animatorSet.playTogether(rotataeAnimation1, rotataeAnimation2);
-//                animatorSet.start();
-
-                //Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -324,10 +313,6 @@ public class Game {
 
             try {
 
-                Log.println(Log.ERROR, "TAG", "Rolly");
-
-                Log.println(Log.ERROR, "TAG", "passing trumps in block 1 : " + this.trumps);
-
                 if(this.invalidCardByHuman == false) {
                     com2Card = this.cpu2.SelectTheHigHighestCardFromCategory(selectedCard.getCategory());
                     Log.println(Log.ERROR, "TAG", "inside the if condition");
@@ -361,9 +346,11 @@ public class Game {
                             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                             @Override
                             public void onAnimationStart(Animation animation) {
+
                                 sounds.cardClick();
                                 ComputerPlayerCardViews.hideCardFromPlayer2();
 
+                                // Com Player 2 card make visibile.
                                 com2.setVisibility(View.VISIBLE);
                                 com2.setImageAlpha(1000);
                             }
@@ -462,7 +449,7 @@ public class Game {
                 this.cpu1.getCardDeck().remove(c1);
                 this.cpu1.setNumberOfCardsRemaining(cpu1.getNumberOfCardsRemaining()-1);
 
-                this.cpu1.getCardDeck().remove(c2);
+                this.cpu2.getCardDeck().remove(c2);
                 this.cpu2.setNumberOfCardsRemaining(cpu2.getNumberOfCardsRemaining()-1);
 
                 final Player winner = this.playedRounds[numberOfRoundsPlayed-1].getWinner();
@@ -542,64 +529,6 @@ public class Game {
         rightView.setImageResource(cardRight.getImageSource());
         leftView.setVisibility(View.VISIBLE);
         rightView.setVisibility(View.VISIBLE);
-
-
-//        final Animation animationRl = AnimationUtils.loadAnimation(activity, R.anim.righttoleft);
-//        final Animation animationLr = AnimationUtils.loadAnimation(activity, R.anim.lefttoright);
-
-//        Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                rightView.startAnimation(animationRl);
-//                animationRl.setAnimationListener(new Animation.AnimationListener() {
-//                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-//                    @Override
-//                    public void onAnimationStart(Animation animation) {
-//                        rightView.setVisibility(View.VISIBLE);
-//                        rightView.setImageAlpha(1000);
-//                    }
-//
-//                    @Override
-//                    public void onAnimationEnd(Animation animation) {
-//                        //com2.setScaleX(com2.getScaleX());
-//
-//                    }
-//
-//                    @Override
-//                    public void onAnimationRepeat(Animation animation) {
-//
-//                    }
-//                });
-//            }
-//        }, 1500);
-//
-//
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                leftView.startAnimation(animationLr);
-//                animationLr.setAnimationListener(new Animation.AnimationListener() {
-//                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-//                    @Override
-//                    public void onAnimationStart(Animation animation) {
-//                        leftView.setVisibility(View.VISIBLE);
-//                        leftView.setImageAlpha(1000);
-//                    }
-//
-//                    @Override
-//                    public void onAnimationEnd(Animation animation) {
-//                        //com2.setScaleX(com2.getScaleX());
-//
-//                    }
-//
-//                    @Override
-//                    public void onAnimationRepeat(Animation animation) {
-//
-//                    }
-//                });
-//            }
-//        }, 3000);
 
 
     }
@@ -963,18 +892,6 @@ public class Game {
                             }
                         }, 3000);
 
-
-                        //cpu1.getCardDeck().remove(c1);
-                        //cpu1.setNumberOfCardsRemaining(cpu1.numberOfCardsRemaining-1);
-                        //cpu2.getCardDeck().remove(c2);
-                        //cpu2.setNumberOfCardsRemaining(cpu2.numberOfCardsRemaining-1);
-
-
-//                    ObjectAnimator ani = ObjectAnimator.ofFloat(com2, "rotation", 0f, 360f);
-//                    ani.setDuration(1500);
-//                    animatorSet.play(ani);
-//                    animatorSet.start();
-                        //game_page.cardTouch(true);
                     }
                 }, 5000);
 
